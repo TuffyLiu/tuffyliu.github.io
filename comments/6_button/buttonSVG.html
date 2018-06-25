@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<style>
+		.box,h1{
+			text-align:center;
+		}
+		.button{
+			border:none;
+			appearance:none;
+			-webkit-appearance:none;
+			cursor:pointer;
+			position:relative;
+			display:inline-block;
+			z-index:1;
+			min-width:150px;
+			max-width:250px;
+			margin:1em;
+			padding:1em 2em;
+			overflow:hidden;/*隐藏超出按钮范围的(隐藏after、before用)*/
+			vertical-align:middle;/*vertical-align 属性设置元素的垂直对齐方式。图片在文字中的对齐*/
+			background-color: #222; /* dark blue*/
+			color:#fff;
+			transition: background-color 0.1s ease-out;
+			outline: 90px solid transparent!important;
+		}
+		.svg-filters{
+			position:absolute;
+			visibility:hidden;
+			width:1px;
+			height:1px;
+		}
+		.button-SVG{
+			-webkit-filter: url("#filter");
+			filter: url("/#filter");
+		}
+		.button-SVG:hover{
+		  background-color: #2CD892; /* green */
+		}
+		.button-SVG2{
+			-webkit-filter: url("#filter2");
+			filter: url("/#filter2");
+		}
+		
+	</style>
+</head>
+<body>
+     <!--边框和字体颜色逐步填充-->
+	<section>
+		<h1>边框和字体颜色逐步填充</h1>
+		<div class="box">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters" class="SVG-filter">
+				<defs><!--包含容器，必备-->
+					<filter id="filter">
+						<feTurbulence type="fractalNoise" baseFrequency="0 0" numOctaves="1" result="warp" />
+     				 	<feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="20" in="SourceGraphic" in2="warp" />
+					</filter>
+				</defs>
+			</svg>
+			<button class="button button-SVG">
+				<span>SVG</span>
+			</button>
+		</div>
+		<div class="box">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters" class="SVG-filter">
+				<defs><!--包含容器，必备-->
+					<filter id="filter2">
+						<feTurbulence type="fractalNoise" baseFrequency="0 0" numOctaves="1" result="warp" />
+     				 	<feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="20" in="SourceGraphic" in2="warp" />
+					</filter>
+				</defs>
+			</svg>
+			<button class="button button-SVG2">
+				<span>SVG</span>
+			</button>
+		</div>
+	</section>
+	<script src="TweenMax.min.js"></script>
+	<script>
+		var bt = document.querySelectorAll('.button-SVG')[0];
+		console.log(bt);
+		var turbVal = { val: 0.000001 };
+		var turb = document.querySelectorAll('#filter feTurbulence')[0];
+		var btTl = new TimelineLite({ paused: true, onUpdate: function() {
+		  turb.setAttribute('baseFrequency', '0 ' + turbVal.val);
+		} });
+		btTl.to(turbVal, 0.2, { val: 0.3 });
+		btTl.to(turbVal, 0.2, { val: 0.000001 });
+		bt.addEventListener('click', function() {
+		  btTl.restart();
+		  });
+	</script>
+</body>
+</html>

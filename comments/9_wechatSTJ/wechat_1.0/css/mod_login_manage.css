@@ -1,0 +1,106 @@
+@charset "utf-8";
+/* CSS Document */
+#mod-login{
+  background: #f8f8f8;
+}
+
+.mod-login-manage h2{
+	margin:2em auto;
+	font-size:1.8em;
+	color:#f38800;
+	font-weight:bold;
+	text-align:center;
+}
+.login{
+	position:relative;
+	margin:0 auto;
+	width:90%;
+	min-height:140px;
+}
+.login .input-group{
+	background-color:#fff;
+	border:#dddddd solid 1px;
+	border-radius:0.4em;
+}
+.input-span{
+	line-height:3em;
+	padding-left:1em;
+	padding-right:1em;
+	font-size:1em;
+}
+.input-span input{
+	background-color:#FFF;
+	border:none;
+	outline:none;
+	resize:none;
+	height:1em;
+	line-height:1em;
+	color:#333;
+	margin-left:0.3em;
+	font-size:1em;
+}
+/*.input-span input[placeholder], .input-span [placeholder], .input-span *[placeholder] { 
+     color:#ccc ; 
+} */
+/* WebKit browsers */
+.input-span input::-webkit-input-placeholder {
+	 color:#ccc ;
+	 font-size:0.95em;
+	 font-style:italic;
+	 line-height:1.5;
+}
+/* Mozilla Firefox 4 to 18 */
+.input-span input:-moz-placeholder {
+	 color:#ccc ;
+	 font-style:italic;
+	 font-size:0.95em;
+	opacity: 1;
+	
+}
+/* Mozilla Firefox 19+ */
+.input-span input::-moz-placeholder {
+	 color:#ccc ;
+	 font-style:italic;
+	  font-size:0.95em;
+	opacity: 1;
+}
+/* Internet Explorer 10+ */
+.input-span input::-ms-input-placeholder {
+	 color:#ccc ;
+	 font-style:italic;
+	 font-size:0.95em;
+}
+
+.border-bottom{
+	border-bottom:#ddd solid 1px;
+}
+.input-span span{
+	color:#999;
+	line-height:1em;
+	display:inline-block;
+	width:3em;
+	font-size:1em;
+	 -webkit-box-pack:justify;
+    -webkit-justify-content:space-between;
+    -ms-flex-pack:justify;
+    justify-content:space-between;
+}
+
+
+.bt-in{
+	margin:1em 0;
+	line-height:2.5em;
+	border-radius:0.4em;
+	background:#f38800;
+	color:#ffffff;
+	text-align:center;
+}
+.bt-in a{
+	display:block;
+	width:100%;
+	height:100%;	
+	color:#fff;
+	letter-spacing:0.5em;
+	
+}
+

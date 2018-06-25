@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+.mod-user{
+	margin-bottom:1em;
+}
+.mod-user .user-banner{
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding-bottom: 8em;
+  height: 0;
+  background:#496b84;
+  background-image:url(../img/user-banner-4.png);
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+	
+}
+
+.user-banner .user-profile{
+	margin:1.3em 7%;
+	position:relative;
+	float:left;
+}
+.user-banner .user-profile img{
+	width:5em;
+	height:auto;
+	position:relative;
+	border:0.18em solid #fff;
+}
+.user-banner .user-info{
+	margin:1em 1em 1em 0;
+	padding-top:0.8em;
+	position:relative;
+	float:left;
+}
+.user-banner .user-info .user-name{
+	font-size:1.2em;
+	line-height:1.5;
+	color:#f95e02;
+}
+.user-banner .user-info .user-school{
+	
+	font-size:0.8em;
+	margin-top:1.5em;
+	color:#f38800;
+}
+.user-banner .user-edit{
+	background:#fff;
+	background-image:url(../images/edit1.png);
+	background-repeat:no-repeat;
+	background-size:1.8em 1.8em;
+	background-position:center;
+	height:1.6em;
+	width:1.6em;
+	border-radius:50%;
+	position:absolute;
+	margin-left:88%;
+	margin-top:1.55em;
+}
+.user-title{
+	height:1.5em;
+	margin-left:0.5em;
+	margin-top:0.5em;
+}
+.user-title img{
+	height:1em;
+	width:auto;
+	position:relative;
+	float:left;
+}
+.user-title p{
+	position:relative;
+	float:left;
+	color:#999;
+	margin-left:0.5em;
+}
+.line-gray{
+	height:1px;
+	width:100%;
+	background-color:#eee;
+	position:relative;
+	top:1.5em;
+}
+.hot-club .user-title{
+	margin-bottom:1em;
+}

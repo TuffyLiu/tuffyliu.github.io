@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+
+.mod-act-list-manage h3{
+	background-color:#ddd;
+	color:#666;
+	font-size:1.1em;
+	line-height:2.2em;
+	text-align:center;
+}
+.mod-act-list-manage .act-list{
+	background-color:#fff;
+}
+.mod-act-list-manage .act-list li{
+	padding:0.5em 0.5em 0 0.5em;
+	border-bottom:#dddddd solid 1px;
+	min-height:5em;
+}
+.mod-act-list-manage .act-list li .act-name{
+	line-height:1.5;
+}
+.mod-act-list-manage .act-list li .time{
+	font-size:0.8em;
+	line-height:2;
+}
+.mod-act-list-manage .act-list li .time span{
+	font-size:0.75em;
+	float:right;
+	color:#2b8bdc;
+}
+.mod-act-list-manage .act-list li .bt-in{
+	font-size:0.8em;
+	width:7em;
+	display:inline-block;
+	margin-left:0.5em;
+}
+.mod-act-list-manage .act-list li .enlist{
+	background-color:#fff;
+	border:#dddddd solid 1px;
+	color:#666;
+
+}
+.mod-act-list-manage .act-list li .enlist a{
+	
+	color:#666;
+
+}
+
+.mod-act-list-manage .act-list li .out-time{
+	background-color:#ccc;
+	
+	color:#999;
+
+}
+.mod-act-list-manage .act-list li .out-time a{
+	
+	color:#999;
+
+}
+
+.mod-act-list-manage .act-list li .bt-in a{
+	letter-spacing:0;
+	
+}
+.put-right{
+	text-align:right;
+}

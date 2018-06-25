@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>活动分析_数据管理_数据_社团+_后台管理系统</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="css/system.css">
+	<link rel="stylesheet" href="plu/daterangepicker/daterangepicker-bs3.css">
+</head>
+<body>
+	<header class="main-header">
+		<a class="logo" href="">
+			<img src="img/logo.png" class="img-responsive" alt="社团+">
+		</a>
+		<div class="header-avator">
+			<p>用户名:huangshuang</p>
+			<a class="out" href="">退出</a>
+		</div>
+		<nav class="navbar">
+			<div class="tab-nav">
+				<ul>
+					<li ><a href="data_management.html">社团家分析</a></li>
+					<li><a href="data_school.html">学校分析</a></li>
+					<li ><a href="data_club.html">社团分析</a></li>
+					<li class="active"><a href="data_activity.html">活动分析</a></li>
+					<li ><a href="data_news.html">资讯分析</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<div class="sidebar">
+		<ul class="sidebar-menu">
+			<li><span>数据</span>
+				<ul>
+					<li class="treeview active"><a><span>数据管理</span><i class="down"></i></a>
+						<ul>
+							<li><a href="data_management.html">社团家分析</a></li>
+							<li><a href="data_school.html">学校分析</a></li>
+							<li ><a href="data_club.html">社团分析</a></li>
+							<li class="active"><a href="data_activity.html">活动分析</a></li>
+							<li ><a href="data_news.html">资讯分析</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li ><span>运营</span>
+				<ul>
+					<li class="treeview "><a><span>审核</span><i class="down"></i></a>
+						<ul>
+							<li ><a href="operation_review.html">学校审核</a></li>
+							<li><a href="operation_comment.html">评论区</a></li>
+							<li><a href="operation_account_back.html">账号申诉</a></li>
+						</ul>
+
+					</li>
+					<li class="treeview"><a><span>信息</span><i class="down"></i></a>
+						<ul>
+							<li><a href="info_school.html">学校</a></li>
+							<li><a href="info_club.html">社团</a></li>
+							<li><a href="info_activity.html">活动</a></li>
+							<li><a href="info_student.html">学生</a></li>
+						</ul>
+					</li>
+					<li class="treeview"><a><span>发布</span><i class="down"></i></a>
+						<ul>
+							<li><a href="release_newslists.html">资讯</a></li>
+							<li ><a href="">活动</a></li>
+						</ul>
+					</li>
+					<li class="treeview"><a><span>推送</span><i class="down"></i></a>
+						<ul>
+							<li><a href="push_informlist.html">通知</a></li>
+							<li><a href="push_messagelist.html">消息</a></li>
+						</ul>
+
+					</li>
+				</ul>
+			</li>
+			<li><span>管理</span>
+				<li class="treeview al_active">
+					<ul>
+						<li><a href="manager.html">管理员管理</a></li>
+					</ul>
+
+				</li>
+			</li>
+		</ul>
+	</div>
+	<div class="main">
+		<div class="mainselect">
+			<div class="form-group">
+				<label for="">搜索:</label>
+				<input type="text" class="form-control search">
+				<button class="btn"></button>
+				<!--span></span-->
+			</div>
+			<div class="form-group">
+				<label for="">时间:</label>
+				<input type="text" class="form-control select-down" id="datetimepicker" readonly>
+				<span ></span>
+			</div>
+			<div class="form-group">
+				<label class="tran">大小:</label>
+				<div class="select-group">
+					<ul>
+						<li>
+							<input type="text" class="form-control">
+						</li>
+						<li> < </li>
+						<li>
+						<div class="dropdown">
+						  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    <span class="select-item">报名人数</span>
+						    <span class="dowm"></span>
+						  </button>
+						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						    <li><a href="#">报名人数</a></li>
+						    <li><a href="#">签到人数</a></li>
+						    <li><a href="#">点赞数</a></li>
+						    <li><a href="#">评论数</a></li>
+						    <li><a href="#">收藏数</a></li>
+						  </ul>
+						</div>
+						</li>
+						<li> < </li>
+						<li><input type="text" class="form-control"></li>
+					</ul>
+				</div>
+				<div class="form-inline bt-group">
+				<button class="btn confirm">确定</button>
+				<button class="btn reset">重置</button>
+			</div>
+			</div>
+			<!--div class="form-group">
+				<button class="btn bt-green">导出数据</button>
+			</div-->
+			<div class="form-group">
+				<button class="btn confirm">导出数据</button>
+			</div>
+		</div>
+		<div class="data">
+			<div class="data-table">
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+						  <tr>
+						    <th>活动名称</th>
+						    <th>活动时间</th>
+						    <th>报名人数</th>
+						    <th>签到人数</th>
+						    <th>赞</th>
+						    <th>评论</th>
+						    <th>收藏</th>
+						    <th>所在学校</th>
+						    <th>举办社团</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+						    <td>兴趣社团很长的活动标题呀是巅峰和生对于上</td>
+						    <td>2015.12.01 2:00--- 2015.12.20 5:00</td>
+						    <td>530</td>
+						    <td>100</td>
+						    <td>100</td>
+						    <td>100</td>
+						    <td>100</td>
+						    <td>红岭中学</td>
+						    <td>兴趣社团</td>
+						  </tr>
+						   <tr>
+						    <td>兴趣社团很长的活动标题呀是巅峰和生对于上</td>
+						    <td>2015.12.01 2:00--- 2015.12.20 5:00</td>
+						    <td>530</td>
+						    <td>100</td>
+						    <td>100</td>
+						    <td>100</td>
+						    <td>100</td>
+						    <td>红岭中学</td>
+						    <td>兴趣社团</td>
+						  </tr>
+						</tbody>
+					</table>
+			    </div>
+			</div>
+			<div class="data-pag">
+				<div class="pagination">
+					<div class="pagi-ul">
+						<ul>
+							<li><a href=""> < </a></li>
+							<li><a href=""> 1 </a></li>
+							<li><a href=""> > </a></li>
+						</ul>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control">
+						<button class="btn" type="submit">跳转</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="bootstrap/jquery-1.12.1.min.js"></script>
+	<script src="bootstrap/bootstrap.min.js"></script>
+	<script src="js/system.js"></script>
+	<script src="plu/daterangepicker/moment.js"></script>
+	<script src="plu/daterangepicker/daterangepicker.js"></script>
+	<script>
+		$('#datetimepicker').daterangepicker({
+		   format: 'YYYY-MM-DD',
+		});
+	</script>
+</body>
+</html>

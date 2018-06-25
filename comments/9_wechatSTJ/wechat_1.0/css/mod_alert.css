@@ -1,0 +1,212 @@
+.mod-alert {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.2);
+  
+  display: none;
+}
+.mod-alert.on {
+  display: block;
+}
+.mod-alert .inner {
+  position: relative;
+  top: 130px;
+  margin: 0 auto;
+  width: 280px;
+  min-height: 140px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 0 5px #ccc;
+  color: #535353;
+  font-size: 15px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  border-radius:5px;
+}
+
+
+.mod-alert .inner .input-group{
+	text-align:left;
+	padding:1em 0;
+}
+.mod-alert .inner .input-group .input-span{
+	background:#eeeeee;
+	margin:1em;
+	line-height:2.5em;
+	border-radius:0.4em;
+}
+.input-span input,.input-span .input-select{
+	background-color:transparent;
+	border:none;
+	box-sizing:border-box;
+	color:#999999;
+	font-size:1em;
+}
+.input-span select{
+	width:66%;
+	/*position:fixed;
+	bottom:10.7em;
+	right:1.4em;*/
+	font-size:1em;
+	border:none;
+	background-color:transparent;
+	color:#999999;
+	position:absolute;
+	top:13.5em;
+	right:1em;
+	line-height:2.5em;
+	-webkit-appearance:none;
+	appearance:none;
+    -moz-appearance:none;
+	-o-appearance:none;
+}
+.input-span select option{
+	padding:0;
+	outline:none;
+	border:none;
+	line-height:2.5em;
+	font-weight:normal;
+	font-size:1em;
+}
+.input-span input:focus{
+	outline:none;
+}
+.input-span span{
+	margin:0 0 0 0.4em;
+}
+
+.bt-in{
+	margin:1em;
+	line-height:2.5em;
+	border-radius:0.4em;
+	background:#f38800;
+	color:#ffffff;
+	text-align:center;
+}
+.bt-in a{
+	
+	color:#fff;
+}
+.title-group p{
+	line-height:3em;
+}
+.title-group span{
+	line-height:3em;
+	position:absolute;
+	top:0;
+	right:1em;
+}
+.inner .title-group::before{
+	content:"";
+	width:92%;
+	height:1px;
+	background-color:#eeeeee;
+	position:absolute;
+	top:3em;
+	left:4%;
+}
+.inner .active-in::before{
+	 top:5em;
+	
+}
+.inner .active-in p{
+	line-height:5em;
+}
+
+.captcha .input-span{
+	width:60%;
+	position:relative;
+	float:left;
+	
+}
+.captcha .input-span input{
+	position:absolute;
+	float:right;
+	line-height:3em;
+	width:60%;
+}
+.captcha{
+	display:-webkit-box;
+}
+#captcha {
+	position:relative;
+	float:right;
+	line-height:2.5em;
+	width:25%;
+	left:-1.3em;
+}
+#captcha a{
+	line-height:2.5em;
+	font-size:0.4em;
+	
+}
+.mod-alert .inner .btn-group {
+  position: relative;
+  text-align: center;
+}
+
+.mod-alert .inner .btn-group .bt-in{
+	position:absolute;
+	width:30%;
+	
+}
+.mod-alert .inner .btn-group .ok{
+	right:1em;
+}
+
+.mod-alert .inner .btn-group .no{
+	left:1em;
+	background:none;
+}
+.mod-alert .inner .btn-group .no a{
+	color:#496b84;
+}
+
+
+
+
+
+
+/*.mod-alert .inner .btn-group.single {
+  margin: 35px 0 0;
+}
+.mod-alert .inner .btn-group.single .btn {
+  width: 100%;
+}
+.mod-alert .inner .btn-group .btn {
+  width: 110px;
+  height: 36px;
+  line-height: 36px;
+  -webkit-border-radius: 25px;
+}
+.mod-alert .success {
+  padding-top: 20px;
+  height: 150px;
+}
+.mod-alert .success p {
+  margin-top: 15px;
+}
+.mod-alert .usr-info {
+  padding: 28px;
+  text-align: left;
+}
+.mod-alert .usr-info i {
+  position: relative;
+  top: 1px;
+  margin-right: 4px;
+}
+.mod-alert .usr-info p {
+  margin-top: 5px;
+}
+.mod-alert .usr-info img {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  -webkit-border-radius: 5px;
+  right: 30px;
+  top: 35px;
+}*/

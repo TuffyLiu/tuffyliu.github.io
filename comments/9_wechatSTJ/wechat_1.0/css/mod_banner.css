@@ -1,0 +1,80 @@
+.mod-banner {
+  overflow: hidden;
+  position: relative;
+}
+.mod-banner.no-margin {
+  margin-bottom: 0;
+}
+.mod-banner .mod-slidshow {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding-bottom: 40%;
+  height: 0;
+}
+.mod-banner .mod-slidshow.club {
+  padding-bottom: 39%;
+}
+.mod-banner .swiper-container-android .swiper-slide {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform:translate3d(0, 0, 0);
+  -o-transform:translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.mod-banner .mod-slidshow > ul {
+  display: -webkit-box;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  box-sizing: content-box;
+  transform-style: preserve-3d;
+}
+.mod-banner .mod-slidshow li {
+  display: -webkit-box;
+  display: flex;
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.mod-banner .mod-slidshow img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.mod-banner .mod-slidshow li a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.mod-banner .mod-indicator {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 5px;
+  text-align:center;
+  z-index: 2;
+}
+.mod-banner .mod-indicator span {
+  position: relative;
+  display: inline-block;
+  width: 1.4vw;
+  height: 1.4vw;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  /*border: 1px solid #feb353;*/
+  margin-right: 0.7%;
+  z-index: 2;
+  background:#fff;
+}
+.mod-banner .mod-indicator span.swiper-pagination-bullet-active {
+  border: none;
+ /* top: -1px;*/
+  background: #ff8162;
+}

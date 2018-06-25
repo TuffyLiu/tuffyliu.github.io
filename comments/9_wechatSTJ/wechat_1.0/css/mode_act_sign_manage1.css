@@ -1,0 +1,150 @@
+@charset "utf-8";
+/* CSS Document */
+#act-sign-mod{
+	background-color:#eee;
+	padding-bottom:0;
+}
+.act-sign{
+	margin:1em;
+	background-color:#fff;
+	background-image:url(../images/mod-act-sign-manage.png);
+	background-repeat:repeat-x;
+	background-position:left bottom;
+	border-radius:0.4em 0.4em 0 0;
+}
+.act-sign h3{
+	text-align:center;
+	background-color:#f38800;
+	border-radius:0.4em 0.4em 0 0;
+	line-height:3em;
+	color:#fff;
+}
+.act-sign .act-name{
+	text-indent:2em;
+	line-height:1.5;
+	margin:1em 1em 0 1em;
+	padding-bottom:1em;
+	border-bottom:#dddddd solid 1px;
+	
+}
+.sign-number{
+	background-color:#ddd;
+	line-height:3em;
+	width:1005;
+	padding-left:1em;
+	padding-right:1em;
+}
+.sign-number span{
+	color:#f38800;
+}
+.sign-input{
+	text-align:center;
+	padding-bottom:0.5em;
+}
+.sign-input p{
+	display:inline-block;
+	color:#333;
+	font-size:0.8em;
+}
+.sign-input .captcha-input{
+	/*background-color:#f7f7f7;
+	border:#dddddd solid 1px;*/
+	/*width:10em;*/
+	border-collapse:collapse;
+	display:inline-block;
+	line-height:2.5em;
+	margin:1em 0;
+	/*background-image:url(../images/input-6.png);
+	background-repeat:no-repeat;
+	background-size:cover;*/
+	
+}
+.sign-input input{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border-radius:none;
+	outline:none;
+	resize:none;
+	width:7em;
+	height:2em;
+	background-color:transparent;
+	line-height:2em;
+	color:#333;
+	font-size:1em;
+	border:#eee 1px solid;
+	text-indent:1em;
+	letter-spacing:0.8em;
+}
+/*.sign-input input{
+	
+	border:none;
+	outline:none;
+	resize:none;
+	width:90%;
+	height:2em;
+	background-color:transparent;
+	line-height:2em;
+	color:#333;
+	font-size:1em;
+	text-align:justify;
+	letter-spacing:1.9em;
+	text-indent:0.6em;
+	overflow: hidden;
+	text-align:left;
+	
+}*、
+/*.sign-input input[placeholder], .sign-input [placeholder], .sign-input *[placeholder] { 
+     color:#ccc ; 
+	 letter-spacing:0em;
+} */
+/* WebKit browsers */
+.sign-input input::-webkit-input-placeholder {
+	 
+	 color:#ccc ; 
+	 letter-spacing:0em;
+}
+/* Mozilla Firefox 4 to 18 */
+.sign-input input::-moz-placeholder {
+	 color:#ccc ; 
+	 letter-spacing:0em;
+}
+/* Mozilla Firefox 19+ */
+.sign-input input::-moz-placeholder {
+     color:#ccc ; 
+	 letter-spacing:0em;
+}
+/* Internet Explorer 10+ */
+.sign-input input::-ms-input-placeholder {
+	 color:#ccc ; 
+	 letter-spacing:0em;
+}
+.sign-input .bt-in{	
+	width:6em;
+	display:inline-block;	
+}
+.act-sign-list{
+	background-color:#fff;
+	height:100%;
+	min-height:14em;
+	padding:1em;
+	
+}
+.act-sign-list table{
+	width:100%;
+	max-width:100%;
+	
+}
+.act-sign-list table .first{
+	color:#f95e02;
+}
+.act-sign-list table td{
+	text-align:center;
+	line-height:1.5;
+}
+.act-sign-list img{
+	position:fixed;
+	width:100%;
+	height:auto;
+	bottom:0;
+	left:0;
+}

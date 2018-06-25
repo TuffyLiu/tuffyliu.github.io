@@ -1,0 +1,121 @@
+.backGround>div{
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	
+}
+.line{
+	background:#eee;
+	background-image: linear-gradient(#fb3 50%,#58a 50%);
+}
+.grid{
+	background-image: linear-gradient(90deg,rgba(200, 0, 0, 0.5) 50%,transparent 0),
+                      linear-gradient(rgba(200, 0, 0, 0.5) 50%,transparent 0);
+	background-size: 30px 30px;
+}
+.small-grid{
+	background: #58a;
+	background-image: linear-gradient(white 1px,transparent 0),
+	                  linear-gradient(90deg,white 1px,transparent 0);
+    background-size: 30px 30px;
+}
+.poiter{
+	background: #655;
+	background-image: radial-gradient(tan 30%,transparent 0),
+					  radial-gradient(tan 30%,transparent 0);
+    background-size: 30px 30px;
+    background-position: 0 0 ,15px 15px;
+}
+.ball{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-image:radial-gradient(transparent 10%,#fb3 100%);
+	background-position: -6px -3px;
+	animation: bounce 3s ease-in;
+}
+@keyframes bounce{
+	60%,80%,to{
+		transform: translateY(350px);
+		animation-timing-function: ease-out;
+	}70%{
+		transform: translateY(250px);
+	}90%{
+		transform: translateY(300px);
+	}
+}
+
+.animatiom{
+	width: 90vw;
+	height: 900px;
+	display: block;
+}
+.callout{
+	width: 200px;
+	position: absolute;
+	display: block;
+	left: 120px;
+	top: 25px;
+	background-color: #fbe4d2;
+	word-break: break-all;
+	padding: 10px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
+	transform-origin: 1.4em -.4em;
+	transition: .5s cubic-bezier(.25,.1,.3,1.5) transform;
+}
+.callout:before{
+	content: "";
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+	border: 5px solid  transparent;
+	border-bottom: 5px solid  #fbe4d2;
+	top: -10px;
+	left: 10px;
+}
+.input-tip{
+	position: relative;
+}
+input:not(:focus)+.callout{
+	transform: scale(0);
+	transition:.25s transform;
+}
+input:focus+.callout{
+	animation: elastic-grow .5s;
+
+}
+@keyframes elastic-grow{
+	from{transform: scale(0);}
+	70%{
+		transform: scale(1.1);
+		animation-timing-function: cubic-bezier(.1,.25,1,.25);
+	}
+}
+.highlight{
+	color: #333;
+	font-size: 30px;
+	animation: 1s blink-smooth 3 steps(1);
+}
+@keyframes blink-smooth{
+	50%{
+		color: transparent;
+	}
+}
+h1{
+	width: 15ch;
+	overflow: hidden;
+	white-space: nowrap;
+	word-break: break-all;
+	border-right: .05em solid;
+	animation: typing 6s steps(15),
+				caret 1s steps(1) infinite;
+}
+@keyframes typing{
+	from{width: 0}
+}
+@keyframes caret{
+	50%{
+		border-color: transparent;
+	}
+}
