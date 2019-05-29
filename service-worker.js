@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.5f5d5c4fad3981c97640c9c2280cc9ac.js"
+  "/precache-manifest.4fcf937e6d6d8dbb9b324e0cb0e6178f.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "tuffy-home"});
