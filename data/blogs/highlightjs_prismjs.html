@@ -1,0 +1,110 @@
+<section style="margin-right: 250px;">
+    <p>
+        建站的过程中，需要用到一个展示代码的web代码高亮。<br>
+        google的时候都不知道要用什么关键字，最先发现了Prismjs,<br>
+        而后又发现了Highlight.js,这两个库都是在github上start 5K以上的库，<br>
+        相比较来说Highlight更说达到了14.3k,<br>
+        最初是使用的Highlight.js，后面又改成了Prismjs。<br>
+        下面来比较一下这两个包吧。
+    </p>
+</section>
+<section>
+    <p><a href="https://github.com/highlightjs/highlight.js" target="_blank">Highlight.js</a></p>
+    <p><a href="https://github.com/PrismJS/prism" target="_blank">Prismjs</a></p>
+    <h3>包引入方式</h3>
+    <p>
+        比较来说highlight.js提供了单独文件格式来引用，一定情形下可以减少包的大小，
+        而highlight.js提供的主题比prismjs多很多，也更漂亮。
+    </p>
+    <pre>
+<code class="language-javascript">
+    // Highlight.js
+    // npm install highlight.js --save
+
+    // 默认倒入所有的文件格式
+    import hljs from 'highlight.js';
+
+    // 很多主题可以选，可以打开包下的styles文件夹中选用一个，也可以自己修改编辑一个主题。
+    import 'highlight.js/styles/github.css';
+
+    //也支持单独文件格式引入
+    import hljs from 'highlight.js/lib/highlight';
+    import javascript from 'highlight.js/lib/languages/javascript';
+    hljs.registerLanguage('javascript', javascript);
+
+    // Prismjs
+    // npm install prismjs --save
+
+    //默认倒入所有的文件格式
+    import Prism from 'prismjs';
+    // 很多主题可以选，可以打开包下的themes文件夹中选用一个，也可以自己修改编辑一个主题。
+    import 'prismjs/themes/prism.css';
+
+    //不支持单独某文件格式引入
+</code>
+</pre>
+</section>
+<section>
+    <h3>使用方式</h3>
+    <p>highlight.js</p>
+    <pre class=" language-markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>code</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>p { color: red }<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>code</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">&gt;</span></span></code></pre>
+<pre>
+<code class="language-javascript">
+    // 可以一次高亮所有的代码块，
+    // 但是我在使用的时候是vue中异步请求数据渲染后在进行代码块高亮，
+    // 所以这个我没办法使用
+    hljs.initHighlightingOnLoad();
+
+    // 找出所有的代码块
+    const list = document.querySelectorAll('pre code');
+    list.forEach((block: any) => {
+        // 这里非常重要!!!highlight.js没办法识别code里面的html结构,转换一下
+        // Prismjs 可以识别，但是如果pre code 里面包含pre code标签，它也识别不了，嵌套
+        block.innerText = block.innerHTML;
+        hljs.highlightBlock(block);
+    });
+</code>
+</pre>
+    <p>Prismjs</p>
+    <pre class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>code</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>language-css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>p { color: red }<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>code</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">&gt;</span></span></code></pre>
+<pre>
+<code class="language-javascript">
+    // 一次高亮所有的代码块，
+    Prism.highlightAll();
+    // 也可以单个单个解决
+    // 找出所有的代码块
+    const list = document.querySelectorAll('pre code');
+    list.forEach((block: any) => {
+        block.innerText = block.innerHTML;
+        const code = block.innerText;
+        block.innerHTML = Prism.highlight(code, Prism.languages.javascript, 'javascript')
+    });
+</code>
+</pre>
+</section>
+<section>
+    <h3>最后的选择</h3>
+    最后我从highlightjs转投Prismjs的原因是，highlightjs对于 // 的注释无法正确识别<br>
+    （如下图所示，出现//注释后，后续的代码都变成注释了）<br>
+    因为我比较经常使用 // 注释，所以对我来说Prismjs更适用
+    <p>prismjs还提供了很多有意思的<a target="_blank" href="https://prismjs.com/index.html#plugins">plugin</a></p>
+    <p>比如说 <a target="_blank" href="https://prismjs.com/plugins/line-numbers/"> line-numbers </a>，代码行数的展示。</p>
+    <img src="https://ae01.alicdn.com/kf/HTB1k7AwaLWG3KVjSZFg762TspXav.png" alt="">
+</section>
+<section>
+    <h3>提到vue的$nextTick</h3>
+    <p>官方的说明是：</p>
+    <p>将回调延迟到下次 DOM 更新循环之后执行。在修改数据之后立即使用它，然后等待 DOM 更新。它跟全局方法 Vue.nextTick 一样，不同的是回调的 this 自动绑定到调用它的实例上。</p>
+    <p>为了在数据变化之后等待 Vue 完成更新 DOM，可以在数据变化之后立即使用 Vue.nextTick(callback)来执行Prism.highlightAll();</p>
+    <p>但是确发现这个时刻统统v-html赋值渲染的结构并没有存在，需要调用setTimeout延迟1ms后,页面才正式地渲染，可用过document访问到了。</p>
+    <p>可见调用Vue.nextTick的时候DOM并没有更新完成。</p>
+<pre>
+<code class="language-javascript">
+    this.$nextTick(() => {
+        setTimeout(() => {
+            Prism.highlightAll();
+        }, 1);
+    });
+</code>
+</pre>
+</section>

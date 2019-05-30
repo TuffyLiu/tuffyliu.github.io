@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Pragma" CONTENT="no-cache">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="keywords" content="canvas html5 video"/>
+    <meta name="description" content="点击爆破视屏" />
+	<title>爆破视屏</title>
+	<link rel="stylesheet" href="clickVideo.css">
+</head>
+<body>
+	<div class="video">
+		<video id="sourceid" autoplay="true" loop="true" volume="0" loop="true" controls="controls" webkit-playsinline>
+			<source src="video/BigBuckBunny_640x360.mp4">
+			<source src="video/BigBuckBunny_640x360.ogv">
+		</video>
+		<canvas id="sourcecopy"></canvas>
+	</div>
+	<div class="stage">
+		<!-- <div class="tip"><p>请点击视屏</p></div> -->
+		<canvas id="sourceshow"></canvas>
+	</div>
+	<script src="clickVideo.js"></script>
+</body>
+</html>

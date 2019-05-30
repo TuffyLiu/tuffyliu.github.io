@@ -2,17 +2,55 @@
     {
         "id": "canvas_sea",
         "title": "canvas-海底气泡圈圈",
-        "subTitle": "通过简单的小demo来熟悉canva的小动画",
+        "subTitle": "通过简单的小demo来熟悉canvas的小动画",
         "banner": "https://ae01.alicdn.com/kf/HTB199gbaECF3KVjSZJnq6znHFXa6.jpg",
         "date": "08/29/2016",
-        "mark": "canvas技能提升"
+        "mark": "canvas",
+        "tip": "canvas技能提升"
     },
     {
         "id": "cursor_monster",
         "title": "《Cursor Monster》css丧心病狂系列",
-        "subTitle": "学习《css揭秘》的作者simurai，在自己的官网写的一个小demo,将把border-radius用到了极致",
+        "subTitle": "写糖果按钮的simurai，在自己的官网写的一个小demo,把border-radius用到了极致",
         "banner": "https://ae01.alicdn.com/kf/HTB1rjsdaA9E3KVjSZFGq6A19XXaQ.jpg",
         "date": "09/21/2016",
-        "mark": "border-radius的神使用"
+        "mark": "border-radius",
+        "tip": "border-radius的神使用"
+    },
+    {
+        "id": "highlightjs_prismjs",
+        "title": "Highlight.js VS Prismjs",
+        "subTitle": "Highlight.js 和 Prismjs是在github上start前2的代码高亮包",
+        "banner": "https://ae01.alicdn.com/kf/HTB1FVgnaL1G3KVjSZFkq6yK4XXaN.jpg",
+        "date": "05/30/2019",
+        "mark": "代码高亮",
+        "tip": "实用包试用报告"
+    },
+    {
+        "id": "canvas_video",
+        "title": "canvas画布学习之《点击爆破视频》",
+        "subTitle": "了解一些动画知识，通过canvas来渲染每一帧。",
+        "banner": "https://ae01.alicdn.com/kf/HTB1eBZ3aHys3KVjSZFn760FzpXaS.png",
+        "date": "04/24/2016",
+        "mark": "动画知识",
+        "tip": "canvas技能提升"
+    },
+    {
+        "id": "sheet_animation",
+        "title": "来呀失眠人群数羊走起",
+        "subTitle": "js动画做的小羊走动视屏",
+        "banner": "https://ae01.alicdn.com/kf/HTB1LkcSaMKG3KVjSZFL761MvXXaB.png",
+        "date": "05/30/2019",
+        "mark": "小羊",
+        "tip": "js动画初体验"
+    },
+    {
+        "id": "word_letter",
+        "title": "你有一封来信请滑开",
+        "subTitle": "canvas做的交互动画，滑开文字",
+        "banner": "https://ae01.alicdn.com/kf/HTB1PR.YaUCF3KVjSZJnq6znHFXaM.jpg",
+        "date": "05/30/2019",
+        "mark": "滑开文字",
+        "tip": "canvas技能提升"
     }
 ]
