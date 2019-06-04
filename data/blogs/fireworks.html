@@ -1,0 +1,230 @@
+<section style="margin-right: 250px;">
+    <p>这是一个用css的animation写的一个小demo</p>
+</section>
+<section>
+    <p>主要是图片的展示放大和位置移动，非常简单，demo如下。</p>
+    <div style="border: 1px solid #efefef;display: flex;justify-content: center;">
+        <iframe id="fireworks" width="337px" height="667px" src="data/demo/fireworks/index.html"></iframe>
+    </div>
+</section>
+<section>
+    <p>主要的css代码如下</p>
+    <pre>
+    <code class="language-css">
+    .fireworks1{
+    	position:absolute;
+    	background:rgba(115, 197, 251, 1);
+    	width:250px;
+    	height:250px;
+    	border-radius:50%;
+    	box-shadow:0 0 20px rgba(115, 197, 251, 1);
+    	top:50px;
+    	left:0px;
+    	z-index:1;
+    	animation:firework 3s infinite ease-out 1s backwards,
+    				shining 3s ease-out infinite  1s backwards,
+    				firework1 3s ease-out infinite  1s backwards;
+    	-webkit-animation:firework 3s infinite ease-out 1s backwards,
+    				shining 3s ease-out infinite  1s backwards,
+    				firework1 3s ease-out infinite  1s backwards;
+    	background-size:contain;
+    }
+    .fireworks2{
+    	position:absolute;
+    	background:rgba(245, 231, 210, 1);
+    	width:330px;
+    	height:330px;
+    	border-radius:50%;
+    	box-shadow:0 0 20px rgba(245, 231, 210, 1);
+    	top:130px;
+    	z-index:2;
+    	animation:firework 3s infinite ease-out  2s backwards,
+    				shining 3s ease-out infinite 2s backwards,
+    				firework2 3s ease-out infinite 2s backwards;
+    	-webkit-animation::firework 3s infinite ease-out  2s backwards,
+    				shining 3s ease-out infinite 2s backwards,
+    				firework2 3s ease-out infinite 2s backwards;
+    	left:64px;
+    	background-size:contain;
+    }
+    .fireworks3{
+    	position:absolute;
+    	background:rgba(154, 134, 255, 1);
+    	width:350px;
+    	height:350px;
+    	border-radius:50%;
+    	box-shadow:0 0 20px rgba(154, 134, 255, 1);
+    	top:384px;
+    	left:125px;
+    	z-index:2;
+    	animation:firework 3s infinite ease-out 1.5s backwards,
+    			  shining 3s ease-out infinite 1.5s backwards,
+    			  firework3 3s ease-out infinite 1.5s backwards;
+    	-webkit-animation:firework 3s infinite ease-out 1.5s backwards,
+    				shining 3s ease-out infinite 1.5s backwards,
+    				firework3 3s ease-out infinite 1.5s backwards;
+    	background-size:contain;
+    }
+    /*keyframes*/
+    @-webkit-keyframes firework{
+    	0%{
+    		transform:translateY(300%) scale(0.05);
+    		-webkit-transition:translateY(300%) scale(0.05);
+    	}
+    	50%{
+    		transform:translateY(0%) scale(0.05);
+    		-webkit-transition:translateY(0%) scale(0.05);
+    	}
+    	100%{
+    		transform:translateY(0%) scale(1);
+    		-webkit-transition:translateY(0%) scale(1);
+    	}
+    }
+    @keyframes firework{
+    	0%{
+    		transform:translateY(300%) scale(0.05);
+    		-webkit-transition:translateY(300%) scale(0.05);
+    	}
+    	50%{
+    		transform:translateY(0%) scale(0.05);
+    		-webkit-transition:translateY(0%) scale(0.05);
+    	}
+    	100%{
+    		transform:translateY(0%) scale(1);
+    		-webkit-transition:translateY(0%) scale(1);
+    	}
+    }
+
+    @-webkit-keyframes shining{
+    	0%{
+    		opacity:1;
+    	}
+    	85%{
+    		opacity:1;
+    	}
+    	100%{
+    		opacity:0;
+    	}
+    }
+    @keyframes shining{
+    	0%{
+    		opacity:1;
+    	}
+    	85%{
+    		opacity:1;
+    	}
+    	100%{
+    		opacity:0;
+    	}
+    }
+    @-webkit-keyframes firework1{
+    	0%{
+    		background:rgba(115, 197, 251, 1);
+    		box-shadow: 0 0 20px rgba(115, 197, 251, 1);
+    	}
+    	49%{
+    		background:rgba(115, 197, 251, 1);
+    		box-shadow: 0 0 20px rgba(115, 197, 251, 1);
+    	}
+    	50%{
+    		 background: url(../img/hua1.png) no-repeat center center;
+    		 box-shadow: 0 0 20px rgba(115, 197, 251, 0);
+    	}
+    	100%{
+    		 background: url(../img/hua1.png) no-repeat center center;
+    		 box-shadow: 0 0 20px rgba(115, 197, 251, 0);
+    	}
+    }
+    @keyframes firework1{
+    	0%{
+    		background:rgba(115, 197, 251, 1);
+    		box-shadow: 0 0 20px rgba(115, 197, 251, 1);
+    	}
+    	49%{
+    		background:rgba(115, 197, 251, 1);
+    		box-shadow: 0 0 20px rgba(115, 197, 251, 1);
+    	}
+    	50%{
+    		 background: url(../img/hua1.png) no-repeat center center;
+    		 box-shadow: 0 0 20px rgba(115, 197, 251, 0);
+    	}
+    	100%{
+    		 background: url(../img/hua1.png) no-repeat center center;
+    		 box-shadow: 0 0 20px rgba(115, 197, 251, 0);
+    	}
+    }
+    @-webkit-keyframes firework2{
+    	0%{
+    		background:rgba(245, 231, 210, 1);
+    		box-shadow: 0 0 20px rgba(245, 231, 210, 1);
+    	}
+    	49%{
+    		background:rgba(245, 231, 210, 1);
+    		box-shadow: 0 0 20px rgba(245, 231, 210, 1);
+    	}
+    	50%{
+    		 background: url(../img/hua2.png) no-repeat center center;
+    		 box-shadow: 0 0 20px rgba(245, 231, 210, 0);
+    	}
+    	100%{
+    		 background: url(../img/hua2.png) no-repeat center center;
+    		 box-shadow: 0 0 20px rgba(245, 231, 210, 0);
+    	}
+    }
+    @keyframes firework2{
+    	0%{
+    		background:rgba(245, 231, 210, 1);
+    		box-shadow: 0 0 20px rgba(245, 231, 210, 1);
+    	}
+    	49%{
+    		background:rgba(245, 231, 210, 1);
+    		box-shadow: 0 0 20px rgba(245, 231, 210, 1);
+    	}
+    	50%{
+    		 background: url(../img/hua2.png) no-repeat center center;
+    		 box-shadow: 0 0 20px rgba(245, 231, 210, 0);
+    	}
+    	100%{
+    		 background: url(../img/hua2.png) no-repeat center center;
+    		 box-shadow: 0 0 20px rgba(245, 231, 210, 0);
+    	}
+    }
+    @-webkit-keyframes firework3{
+    	0%{
+    		background:rgba(115, 197, 251, 1);
+    		box-shadow: 0 0 20px rgba(154, 134, 255, 1);
+    	}
+    	49%{
+    		background:rgba(115, 197, 251, 1);
+    		box-shadow: 0 0 20px rgba(154, 134, 255, 1);
+    	}
+    	50%{
+    		 background: url(../img/hua3.png) no-repeat center center;
+    		 box-shadow: 0 0 20px rgba(154, 134, 255, 0);
+    	}
+    	100%{
+    		 background: url(../img/hua3.png) no-repeat center center;
+    		 box-shadow: 0 0 20px rgba(154, 134, 255, 0);
+    	}
+    }
+    @keyframes firework3{
+    	0%{
+    		background:rgba(115, 197, 251, 1);
+    		box-shadow: 0 0 20px rgba(154, 134, 255, 1);
+    	}
+    	49%{
+    		background:rgba(115, 197, 251, 1);
+    		box-shadow: 0 0 20px rgba(154, 134, 255, 1);
+    	}
+    	50%{
+    		 background: url(../img/hua3.png) no-repeat center center;
+    		 box-shadow: 0 0 20px rgba(154, 134, 255, 0);
+    	}
+    	100%{
+    		 background: url(../img/hua3.png) no-repeat center center;
+    		 box-shadow: 0 0 20px rgba(154, 134, 255, 0);
+    	}
+    }
+    </code>
+    </pre>
+</section>

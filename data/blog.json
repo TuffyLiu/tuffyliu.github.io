@@ -27,6 +27,24 @@
         "tip": "实用包试用报告"
     },
     {
+        "id": "web_wechat",
+        "title": "微信公众号网页开发项目总结",
+        "subTitle": "微信公众号网页开发填坑史",
+        "banner": "https://ae01.alicdn.com/kf/HTB1rDaEbq1s3KVjSZFAq6x_ZXXaU.jpg",
+        "date": "06/04/2019",
+        "mark": "填坑史",
+        "tip": "微信公众号网页开发"
+    },
+    {
+        "id": "node_image",
+        "title": "用node来读写excel批量生成证书",
+        "subTitle": "熟悉node的文件操作和图片处理",
+        "banner": "https://ae01.alicdn.com/kf/HTB1WoI8bk9E3KVjSZFGq6A19XXa2.jpg",
+        "date": "05/27/2019",
+        "mark": "node",
+        "tip": "node技能提升"
+    },
+    {
         "id": "canvas_video",
         "title": "canvas画布学习之《点击爆破视频》",
         "subTitle": "了解一些动画知识，通过canvas来渲染每一帧。",
@@ -40,7 +58,7 @@
         "title": "来呀失眠人群数羊走起",
         "subTitle": "js动画做的小羊走动视屏",
         "banner": "https://ae01.alicdn.com/kf/HTB1LkcSaMKG3KVjSZFL761MvXXaB.png",
-        "date": "05/30/2019",
+        "date": "05/30/2017",
         "mark": "小羊",
         "tip": "js动画初体验"
     },
@@ -49,17 +67,17 @@
         "title": "你有一封来信请滑开",
         "subTitle": "canvas做的交互动画，滑开文字",
         "banner": "https://ae01.alicdn.com/kf/HTB1PR.YaUCF3KVjSZJnq6znHFXaM.jpg",
-        "date": "05/30/2019",
+        "date": "06/30/2017",
         "mark": "滑开文字",
         "tip": "canvas技能提升"
     },
     {
-        "id": "node_image",
-        "title": "用node来读写excel批量生成证书",
-        "subTitle": "熟悉node的文件操作和图片处理",
-        "banner": "https://ae01.alicdn.com/kf/HTB1WoI8bk9E3KVjSZFGq6A19XXa2.jpg",
-        "date": "06/01/2019",
-        "mark": "node",
-        "tip": "node技能提升"
+        "id": "fireworks",
+        "title": "过年一起看烟花",
+        "subTitle": "通过一个小的h5动画来来熟悉 css animation",
+        "banner": "https://ae01.alicdn.com/kf/HTB1YzutbBaE3KVjSZLe760sSFXad.png",
+        "date": "04/24/2016",
+        "mark": "css animation",
+        "tip": "CSS动画技能提升"
     }
 ]

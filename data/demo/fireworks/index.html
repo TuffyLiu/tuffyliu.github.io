@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Pragma" CONTENT="no-cache">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<title>在阳台上看烟花</title>
+	<link rel="stylesheet" href="css/Fireworks.css">
+</head>
+<body>
+	<div class="wrap" id="wrap">
+		<div class="fireworks1"></div>
+		<div class="fireworks2"></div>
+		<div class="fireworks3"></div>
+		<div class="land" id="land">
+			<img src="img/land.png" alt="">
+			<div class="ren1" id="ren1">
+				<img src="img/ren4.png" alt="">
+				<div class="talk" >
+					<p>豆豆，快看那个！</p>
+				</div>
+			</div>
+			<div class="ren3" id="ren3">
+				<img src="img/ren3.png" alt="">
+				<div class="talk">
+					<p>哇！妈妈，我也想放烟花。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	    var clicktemp=true,clicknum=0;
+		//var land=document.getElementById("land");
+
+		//land.onclick=clickshow;
+		var ren1l=document.getElementById("ren1");
+		var ren3l=document.getElementById("ren3");
+		ren1l.addEventListener('click', clickshow,false);
+		ren3l.addEventListener('click', clickshow,false);
+		// ren3l.onclick=clickshow;
+		// ren1l.onclick=clickshow;
+		function clickshow(){
+			var ren1=document.getElementById("ren1").lastElementChild;
+			var ren3=document.getElementById("ren3").lastElementChild;
+			if(clicktemp)
+			{
+				clicktemp=false;
+				ren1.style.opacity=1;
+				setTimeout(function(){
+					ren3.style.opacity=1;
+				}, 500);
+			}
+			else{
+				clicktemp=true;
+				ren1.style.opacity=0;
+				ren3.style.opacity=0;
+			}
+		}
+		var wrap=document.getElementById("wrap");
+		wrap.addEventListener('touchmove', mouseMove,false);
+		function mouseMove(ev){
+			var oEvent = event || ev;
+			oEvent.stopPropagation();
+			oEvent.preventDefault();
+		}
+	</script>
+</body>
+</html>
