@@ -52,5 +52,14 @@
         "date": "05/30/2019",
         "mark": "滑开文字",
         "tip": "canvas技能提升"
+    },
+    {
+        "id": "node_image",
+        "title": "用node来读写excel批量生成证书",
+        "subTitle": "熟悉node的文件操作和图片处理",
+        "banner": "https://ae01.alicdn.com/kf/HTB1WoI8bk9E3KVjSZFGq6A19XXa2.jpg",
+        "date": "06/01/2019",
+        "mark": "node",
+        "tip": "node技能提升"
     }
 ]

@@ -1,0 +1,168 @@
+<section style="margin-right: 250px;">
+    <p>
+        运营的同事们在搞课程营销，课程结束后需要给每一位学员颁发毕业证书，需要把用户的头像下载下来，
+        在毕业证书上p上所属班级和微信昵称。几千人，每次几百人她们要花费这一两个小时，所以我决定用node给她们写个自动化的工具可以省很多时间。
+    </p>
+</section>
+<section>
+    <p>所需要生成的图片如下</p>
+    <img style="width:300px;" src="/data/demo/node_image/card.jpg" alt="">
+</section>
+<section>
+<pre>
+<code class="language-javascript">
+    const xlsx = require('node-xlsx');
+    const fs = require('fs');
+    const path = require("path");
+    const root = `${__dirname}/进阶通知书`;
+    //图片处理
+    const sharp = require('sharp');
+    //下载微信头像
+    const download = require('download');
+    //文字转化称svg
+    const TextToSVG = require('text-to-svg');
+
+    // 新建目录
+    const mkdirs = (currentDir, _callback) => {
+        const exists = fs.existsSync(currentDir);
+        if (!exists) {
+            fs.mkdirSync(currentDir);
+        }
+    };
+
+    //删除目录
+    const removeDir = (dir) => {
+        let files = fs.readdirSync(dir)
+        for (var i = 0; i < files.length; i++) {
+            let newPath = path.join(dir, files[i]);
+            let stat = fs.statSync(newPath)
+            if (stat.isDirectory()) {
+                //如果是文件夹就递归下去
+                removeDir(newPath);
+            } else {
+                //删除文件
+                fs.unlinkSync(newPath);
+            }
+        }
+        fs.rmdirSync(dir) //如果文件夹是空的，就将自己删除掉
+    };
+
+    //清理上一次生成的文件
+    removeDir(`${root}/logo/`);
+    removeDir(`${root}/result/`);
+
+    //新建所需的两个文件夹
+    mkdirs(`${root}/result/`);
+    mkdirs(`${root}/logo/`);
+
+
+    //生成卡片系统
+
+    const textToSVG = TextToSVG.loadSync('./苹方黑体-准-简.ttf');
+    const data = xlsx.parse(fs.readFileSync(`${root}/用户数据.xls`))[0].data;
+
+    //根据表头来获取对应的数据
+    const head = data.shift();
+    const nameIndex = head.indexOf('微信昵称');
+    const logoIndex = head.indexOf('微信头像');
+    const classIndex = head.indexOf('请骄傲地说出你的班级');
+
+    //用于将方形的图片切成圆形
+    const roundedCorners = Buffer.from(
+        '< svg>< circle r="78" cx="78" cy="78"/>< /svg>'
+    );
+
+    //文字svg的相关属性
+    const attributes = {
+        fill: "#333"
+    };
+    const svgOptions = {
+        x: 0,
+        y: 0,
+        fontSize: 40,
+        kerning: true,
+        anchor: "top",
+        attributes: attributes
+    };
+
+    data.forEach((item, index) => {
+        if (!(item[logoIndex] && item[classIndex] && item[nameIndex])) {
+            return false;
+        }
+        const name = item[classIndex] + '  ' + item[nameIndex];
+        mkdirs(path.join(`${root}/result`, item[classIndex]));
+        download(item[logoIndex], `${root}/logo`, {
+            filename: index + '.png'
+        }).then(() => {
+            sharp(`${root}/logo/${index}.png`)
+                .resize(156, 156)
+                .overlayWith(roundedCorners, {
+                    cutout: true
+                }).toFile(`${root}/logo/${index}_cricle.png`, (err, info) => {
+
+                    const svg = textToSVG.getSVG(name, svgOptions);
+                    const width = Number(svg.match(/width="(.*?)"/)[1]);
+                    const svgPath = Buffer.from(svg);
+
+                    sharp(`${root}/temp.jpg`)
+                        .overlayWith(svgPath, {
+                            top: 762,
+                            left: Math.round(590 - width / 2),
+                        }).toFile(`${root}/logo/${index}_word.png`, (err, info) => {
+                            sharp(`${root}/logo/${index}_word.png`).overlayWith(`${root}/logo/${index}_cricle.png`, {
+                                top: 570,
+                                left: 516
+                            }).toFile(`${root}/result/${item[classIndex]}/${name.replace('/', '')}.jpg`, (err, info) => {
+                                if (err) {
+                                    console.log('生成卡片失败', err);
+                                } else {
+                                    console.log(`/result/${item[classIndex]}/${index + '_' + name}.jpg done!`);
+                                }
+                            });
+                        });
+                });
+        });
+    });
+</code>
+</pre>
+</section>
+<section>
+    <h3>主要的使用包如下</h3>
+<pre>
+<code class="language-javascript">
+    "dependencies": {
+       "download": "^7.1.0", // 下载微信头像
+       "node-xlsx": "^0.15.0", // 读取表格数据
+       "sharp": "^0.22.1", // 处理图片
+       "text-to-svg": "^3.1.5" // 将文本转化称svg
+     }
+</code>
+</pre>
+    <p>期间主要是熟悉node 的 filesystem 的异步和同步操作的区别，和其他四个包的使用方式。</p>
+    <p>
+        在删除文件和文件目录的时候刚开始的时候使用的是fs的异步操作和递归函数，
+        这样就没办法就确认所有的删除动作已经完成，
+        所以只能够把所有的操作改成同步操作，确保每一步都进行完成再执行第二部操作，
+        或者也可以采用child_process系统的命令来实行
+    </p>
+<pre>
+<code class="language-javascript">
+    const { exec } = require('child_process');
+    const child = exec('rm -rf test',function(err,out) {
+        console.log(out);
+        err && console.log(err);
+    });
+</code>
+</pre>
+    <p>因为是第一次正儿八经地写node代码，写的有点乱。</p>
+    <p>关于node的可执行程序打包的问题，我还没能找到可行的方案，最后在同事的电脑里安装了node,给它编写了一个bat文件，让他点击执行。</p>
+    <p>这里想记录一个node处理表格的包exceljs，非常强大，但是文档有限，在寻找如何拷贝一个sheet到另一个表格这个问题，我找了很久</p>
+    <pre>
+    <code class="language-javascript">
+    sheet.model = Object.assign(copySheet.model, {
+        mergeCells: copySheet.model.merges
+    });
+    </code>
+    </pre>
+    <p>exceljs中的workbook的概念非常值得思考和学习。</p>
+</section>
