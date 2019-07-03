@@ -4,27 +4,131 @@
     </p>
 </section>
 <section>
-    <p>官方教程非常详细</p>
+    <a target="_blank" href="https://developers.google.com/web/fundamentals/codelabs/?hl=zh-cn"  rel="noopener noreferrer">官方教程</a>
+    <br>
+    <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API"  rel="noopener noreferrer">MDN教程</a>
+    <br>
+    <a target="_blank" href="https://cli.vuejs.org/zh/guide/deployment.html#pwa"  rel="noopener noreferrer">基于 Vue.js 的 PWA 解决方案</a>
+    <br>
     <p>
-        <a href="https://developers.google.com/web/fundamentals/codelabs/?hl=zh-cn">官方教程</a>
+        Vue CLI中添加了PWA插件,只要在创建项目的时候选择pwa Support,也可以在原有项目中通过执行vue add @vue/pwa提案家。<br>
+        会在项目目录中添加一个 registerServiceWorker.ts 文件
     </p>
-    <p><a href="https://lavas.baidu.com/pwa">基于 Vue.js 的 PWA 解决方案</a></p>
+<pre>
+<code class="language-javascript">
+    /* tslint:disable:no-console */
+
+    import { register } from 'register-service-worker';
+
+    if (process.env.NODE_ENV === 'production') {
+        register(`${process.env.BASE_URL}service-worker.js`, {
+            ready() {
+                console.log(
+                    'App is being served from cache by a service worker.\n' +
+                    'For more details, visit https://goo.gl/AFskqB'
+                );
+            },
+            registered() {
+                console.log('Service worker has been registered.');
+            },
+            cached() {
+                console.log('Content has been cached for offline use.');
+            },
+            updatefound() {
+                console.log('New content is downloading.');
+            },
+            updated() {
+                console.log('New content is available; please refresh.');
+            },
+            offline() {
+                console.log('No internet connection found. App is running in offline mode.');
+            },
+            error(error) {
+                console.error('Error during service worker registration:', error);
+            }
+        });
+    }
+
+</code>
+</pre>
+<p>执行编译打包（npm run build）后会生用一个根据precache-manifest.js缓存的service-worker.js，会把所有的资源缓存～～</p>
+<pre>
+<code class="language-javascript">
+    /**
+     * Welcome to your Workbox-powered service worker!
+     *
+     * You'll need to register this file in your web app and you should
+     * disable HTTP caching for this file too.
+     * See https://goo.gl/nhQhGp
+     *
+     * The rest of the code is auto-generated. Please don't update this file
+     * directly; instead, make changes to your Workbox build configuration
+     * and re-run your build process.
+     * See https://goo.gl/2aRDsh
+     */
+
+    importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+
+    importScripts(
+      "/precache-manifest.d28c03d130e5c8ca467d99f8e3e33ab6.js"
+    );
+
+    workbox.core.setCacheNameDetails({prefix: "tuffy-home"});
+
+    /**
+     * The workboxSW.precacheAndRoute() method efficiently caches and responds to
+     * requests for URLs in the manifest.
+     * See https://goo.gl/S9QRab
+     */
+    self.__precacheManifest = [].concat(self.__precacheManifest || []);
+    workbox.precaching.suppressWarnings();
+    workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+</code>
+</pre>
+    <p>你也可以自己写service-worker.js来自定义缓存的方式。具体的配置方式写在Vue.config.js中，
+        <a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa" target="_blank" rel="noopener noreferrer">详细说明</a>
+    </p>
 </section>
 <section>
     <h3>什么是Service Worker</h3>
+    <a target="_blank" href="https://harttle.land/2019/03/27/from-spa-to-pwa.html#header-8"  rel="noopener noreferrer">从 SPA 到 PWA</a><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://harttle.land/2017/01/28/pwa-explore.html">PWA 初探：基本特性与标准现状</a>
 </section>
 <section>
     <h3>App Shell 模型</h3>
+    <a target="_blank" href="https://developers.google.com/web/fundamentals/architecture/app-shell?hl=zh-cn"  rel="noopener noreferrer">官方介绍</a><br>
+    <p>
+        App Shell 架构是构建 Progressive Web App 的一种方式，<br>
+        App shell 架构是保证UI的本地化以及从Api动态加载内容，但同时不影响网络的可连接性和可检测性。<br>
+        一般而言，应加载尽可能简单的Shell,但初始下载时应包含足够的有意义的页面内容。<br>
+        去定每个数据来源的速度与数据新鲜度之间的正确平衡点。
+    </p>
+    <p>是一种设计模式，通过对js和css和一下offline.html进行缓存第二次访问后快速的展现在用户面前，同时也去进行网络请求数据。</p>
 </section>
 <section>
     <h3>indexedDB能用么</h3>
+    <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API" rel="noopener noreferrer">MDN关于indexedDB的权威介绍</a><br>
+    <p>联合使用IndexedDB储存离线数据和Service Workers储存离线资源,考虑到兼容性问题。大佬并没有同意使用indexedDB，所以我的了解也仅限于文档。</p>
 </section>
 <section>
     <h3>关于Lighthouse</h3>
+    <a target="_blank" href="https://developers.google.com/web/tools/lighthouse/?hl=zh-cn"  rel="noopener noreferrer">官方使用说明</a><br>
+    用于监测自己的页面性能的一个工具-根据它初的报告来调整自己的页面～
+
 </section>
 <section>
     <h3>关于Workbox</h3>
+    <a href="https://developers.google.com/web/tools/workbox/guides/get-started?hl=zh-cn" rel="noopener noreferrer">官方教程</a><br>
+    使用Workbox可以很简单的写出sw.js
 </section>
 <section>
-    <h3>关于Web Server</h3>
+    <h3>Service Worker如何更新</h3>
+    <p>
+        某次面试，因为简历上写着有开发过pwa应用，面试关问我，已经注册了的Service-Worker.js 文件要更新怎么办？<br>
+        实际这个问题我是没有思考过的～～这里有一篇文章讲到
+        <a target="_blank" href="https://harttle.land/2017/04/10/service-worker-update.html" rel="noopener noreferrer">Service-Worker 的更新</a>。<br>
+        大概的意思是sw.js并不是页面的脚本资源，它的更新由浏览器触发,你不需要管～～～<br>
+        <a target="_blank" href="https://harttle.land/2017/04/08/service-worker-debug.html" rel="noopener noreferrer">service worker 的调试技巧</a><br>
+        <a target="_blank" href="https://juejin.im/post/5c81cc985188257df17f109c" rel="noopener noreferrer">谨慎处理Service Worker 的更新</a>
+    </p>
 </section>

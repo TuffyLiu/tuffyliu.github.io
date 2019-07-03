@@ -12,7 +12,7 @@
 </section>
 
 <section>
-    <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1483682025_enmey" target="_blank">微信网页开发的wiki文档</a>
+    <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1483682025_enmey" target="_blank" rel="noopener noreferrer">微信网页开发的wiki文档</a>
     <h3>1.vue-router的路由在微信中的坑</h3>
     <p>
         公众号网页中vue-Router使用history mode 后，会造成ios版本的微信微信的长按识别功能（扫描图中的二维码不出现）调用失败的情况。
@@ -34,7 +34,7 @@
 </section>
 <section>
     <h3>2.微信登陆授权的跳转逻辑</h3>
-    <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842" target="_blank">微信登陆授权的说明文档</a>
+    <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842" target="_blank" rel="noopener noreferrer">微信登陆授权的说明文档</a>
     <p>主要的方式是跳转微信的授权链接，登陆授权后会添加一些参数再跳转回来</p>
     <p>https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect </p>
     <p>需要主意的点是redirect_uri，需要使用 urlEncode 对链接进行处理，跳转后微信会在url后添加query,如下</p>
@@ -43,7 +43,7 @@
 </section>
 <section>
     <h3>3.设置微信分享标题时ios和安卓的不同</h3>
-    <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115" target="_blank">微信JS-SDK说明文档</a>
+    <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115" target="_blank" rel="noopener noreferrer">微信JS-SDK说明文档</a>
     <p>在安卓中跳转页面后需要再一次调用wx.config，通过config接口注入权限验证配置，在wx.ready的回调里面调用wx.onMenuShareAppMessage</p>
     <p>刚刚看到官方文档中写到wx.onMenuShareAppMessage即将废除，要使用wx.updateAppMessageShareData、updateTimelineShareData</p>
     <p>我觉得是因为在前端路由中，在ios，微信并没有正确的记录路由，而在安卓中正确记录了，所以才需要第二次认证调用。</p>
@@ -55,7 +55,7 @@
 </section>
 <section>
     <h3>5.html2canvas出现生成图片不全的情况</h3>
-    <a href="https://github.com/niklasvh/html2canvas" target="_blank" >html2canvas github</a>
+    <a href="https://github.com/niklasvh/html2canvas" target="_blank" rel="noopener noreferrer">html2canvas github</a>
     <p>html2canvas的ios第一个版本会出现跨域图片无法处理的问题，在最新的一个版本中已经修复了这个问题。</p>
     <p>可能是由于transition页面过度的问题会造成偶发性的html2canvas截取的图片是半截的透明，可以通过延后300ms再执行。</p>
 </section>
@@ -75,8 +75,8 @@
 
 <section>
     <h3>7.typescript的初次尝试</h3>
-    <a href="https://typescript.bootcss.com/interfaces.htmls" target="_blank">TypeScript 中文手册</a><br>
-    <a href="https://www.jianshu.com/p/d21d7fcb35ef" target="_blank">基于typescript的vue-cli3.0的一些写法</a>
+    <a href="https://typescript.bootcss.com/interfaces.htmls" target="_blank" rel="noopener noreferrer">TypeScript 中文手册</a><br>
+    <a href="https://www.jianshu.com/p/d21d7fcb35ef" target="_blank" rel="noopener noreferrer">基于typescript的vue-cli3.0的一些写法</a>
     <p>
         主要去适应vue的一些写法的改变，和变量的结构一定要事先声明。有时候懒了就会用any来声明。<br>
         TypeScript的核心原则之一是对值所具有的结构进行类型检查，还是要习惯用interface接口。
