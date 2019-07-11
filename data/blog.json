@@ -1,14 +1,5 @@
 [
     {
-        "id": "atom_plugin",
-        "title": "写一个atom的插件",
-        "subTitle": "插件体系让atom能立足于编辑器之争，让我们尝试看看吧～～",
-        "banner": "https://ae01.alicdn.com/kf/HTB1uUqwbUuF3KVjSZK9762VtXXay.png",
-        "date": "06/06/2019",
-        "mark": "atom",
-        "tip": "atom plugin 初尝试"
-    },
-    {
         "id": "web_wechat",
         "title": "微信公众号网页开发项目总结",
         "subTitle": "微信公众号网页开发填坑史，解决 or 妥协！",
@@ -16,15 +7,6 @@
         "date": "06/04/2019",
         "mark": "填坑史",
         "tip": "微信公众号网页开发"
-    },
-    {
-        "id": "vue_webpack",
-        "title": "vue-cli 3.0项目中的webpack配置分析学习",
-        "subTitle": "让我们来通过vue-cli3的配置来逐渐熟悉webpack吧",
-        "banner": "https://ae01.alicdn.com/kf/HTB1OHVibGSs3KVjSZPi763siVXaD.png",
-        "date": "06/05/2019",
-        "mark": "webpack",
-        "tip": "webpack进阶之路"
     },
     {
         "id": "highlightjs_prismjs",
@@ -43,6 +25,79 @@
         "date": "05/27/2019",
         "mark": "node",
         "tip": "node技能提升"
+    },
+    {
+        "id": "canvas_sea",
+        "title": "canvas-海底气泡圈圈",
+        "subTitle": "通过简单的小demo来熟悉canvas的小动画",
+        "banner": "https://ae01.alicdn.com/kf/HTB199gbaECF3KVjSZJnq6znHFXa6.jpg",
+        "date": "08/29/2018",
+        "mark": "canvas",
+        "tip": "canvas技能提升"
+    },
+    {
+        "id": "cursor_monster",
+        "title": "《Cursor Monster》css丧心病狂系列",
+        "subTitle": "写糖果按钮的simurai，在自己的官网写的一个小demo,把border-radius用到了极致",
+        "banner": "https://ae01.alicdn.com/kf/HTB1rjsdaA9E3KVjSZFGq6A19XXaQ.jpg",
+        "date": "09/21/2018",
+        "mark": "border-radius",
+        "tip": "border-radius的神使用"
+    },
+
+    {
+        "id": "canvas_video",
+        "title": "canvas画布学习之《点击爆破视频》",
+        "subTitle": "了解一些动画知识，通过canvas来渲染每一帧。",
+        "banner": "https://ae01.alicdn.com/kf/HTB1eBZ3aHys3KVjSZFn760FzpXaS.png",
+        "date": "04/24/2018",
+        "mark": "动画知识",
+        "tip": "canvas技能提升"
+    },
+    {
+        "id": "sheet_animation",
+        "title": "来呀失眠人群数羊走起",
+        "subTitle": "js动画做的小羊走动视屏",
+        "banner": "https://ae01.alicdn.com/kf/HTB1LkcSaMKG3KVjSZFL761MvXXaB.png",
+        "date": "05/30/2018",
+        "mark": "小羊",
+        "tip": "js动画初体验"
+    },
+    {
+        "id": "word_letter",
+        "title": "你有一封来信请滑开",
+        "subTitle": "canvas做的交互动画，滑开文字",
+        "banner": "https://ae01.alicdn.com/kf/HTB1PR.YaUCF3KVjSZJnq6znHFXaM.jpg",
+        "date": "06/30/2018",
+        "mark": "滑开文字",
+        "tip": "canvas技能提升"
+    },
+    {
+        "id": "fireworks",
+        "title": "过年一起看烟花",
+        "subTitle": "通过一个小的h5动画来来熟悉 css animation",
+        "banner": "https://ae01.alicdn.com/kf/HTB1YzutbBaE3KVjSZLe760sSFXad.png",
+        "date": "04/24/2018",
+        "mark": "css animation",
+        "tip": "CSS动画技能提升"
+    },
+    {
+        "id": "vue_webpack",
+        "title": "vue-cli 3.0项目中的webpack配置分析学习",
+        "subTitle": "让我们来通过vue-cli3的配置来逐渐熟悉webpack吧",
+        "banner": "https://ae01.alicdn.com/kf/HTB1OHVibGSs3KVjSZPi763siVXaD.png",
+        "date": "06/05/2019",
+        "mark": "webpack",
+        "tip": "webpack进阶之路"
+    },
+    {
+        "id": "atom_plugin",
+        "title": "写一个atom的插件",
+        "subTitle": "插件体系让atom能立足于编辑器之争，让我们尝试看看吧～～",
+        "banner": "https://ae01.alicdn.com/kf/HTB1uUqwbUuF3KVjSZK9762VtXXay.png",
+        "date": "06/06/2019",
+        "mark": "atom",
+        "tip": "atom plugin 初尝试"
     },
     {
         "id": "pwa",
@@ -88,60 +143,5 @@
         "date": "05/22/2019",
         "mark": "flex布局",
         "tip": "css进阶"
-    },
-    {
-        "id": "canvas_sea",
-        "title": "canvas-海底气泡圈圈",
-        "subTitle": "通过简单的小demo来熟悉canvas的小动画",
-        "banner": "https://ae01.alicdn.com/kf/HTB199gbaECF3KVjSZJnq6znHFXa6.jpg",
-        "date": "08/29/2016",
-        "mark": "canvas",
-        "tip": "canvas技能提升"
-    },
-    {
-        "id": "cursor_monster",
-        "title": "《Cursor Monster》css丧心病狂系列",
-        "subTitle": "写糖果按钮的simurai，在自己的官网写的一个小demo,把border-radius用到了极致",
-        "banner": "https://ae01.alicdn.com/kf/HTB1rjsdaA9E3KVjSZFGq6A19XXaQ.jpg",
-        "date": "09/21/2016",
-        "mark": "border-radius",
-        "tip": "border-radius的神使用"
-    },
-
-    {
-        "id": "canvas_video",
-        "title": "canvas画布学习之《点击爆破视频》",
-        "subTitle": "了解一些动画知识，通过canvas来渲染每一帧。",
-        "banner": "https://ae01.alicdn.com/kf/HTB1eBZ3aHys3KVjSZFn760FzpXaS.png",
-        "date": "04/24/2016",
-        "mark": "动画知识",
-        "tip": "canvas技能提升"
-    },
-    {
-        "id": "sheet_animation",
-        "title": "来呀失眠人群数羊走起",
-        "subTitle": "js动画做的小羊走动视屏",
-        "banner": "https://ae01.alicdn.com/kf/HTB1LkcSaMKG3KVjSZFL761MvXXaB.png",
-        "date": "05/30/2017",
-        "mark": "小羊",
-        "tip": "js动画初体验"
-    },
-    {
-        "id": "word_letter",
-        "title": "你有一封来信请滑开",
-        "subTitle": "canvas做的交互动画，滑开文字",
-        "banner": "https://ae01.alicdn.com/kf/HTB1PR.YaUCF3KVjSZJnq6znHFXaM.jpg",
-        "date": "06/30/2017",
-        "mark": "滑开文字",
-        "tip": "canvas技能提升"
-    },
-    {
-        "id": "fireworks",
-        "title": "过年一起看烟花",
-        "subTitle": "通过一个小的h5动画来来熟悉 css animation",
-        "banner": "https://ae01.alicdn.com/kf/HTB1YzutbBaE3KVjSZLe760sSFXad.png",
-        "date": "04/24/2016",
-        "mark": "css animation",
-        "tip": "CSS动画技能提升"
     }
 ]
