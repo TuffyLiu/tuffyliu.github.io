@@ -96,14 +96,10 @@
     <p>官方的说明是：</p>
     <p>将回调延迟到下次 DOM 更新循环之后执行。在修改数据之后立即使用它，然后等待 DOM 更新。它跟全局方法 Vue.nextTick 一样，不同的是回调的 this 自动绑定到调用它的实例上。</p>
     <p>为了在数据变化之后等待 Vue 完成更新 DOM，可以在数据变化之后立即使用 Vue.nextTick(callback)来执行Prism.highlightAll();</p>
-    <p>但是确发现这个时刻统统v-html赋值渲染的结构并没有存在，需要调用setTimeout延迟1ms后,页面才正式地渲染，可用过document访问到了。</p>
-    <p>可见调用Vue.nextTick的时候DOM并没有更新完成。</p>
 <pre>
 <code class="language-javascript">
     this.$nextTick(() => {
-        setTimeout(() => {
-            Prism.highlightAll();
-        }, 1);
+        Prism.highlightAll();
     });
 </code>
 </pre>
