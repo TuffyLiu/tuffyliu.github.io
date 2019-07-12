@@ -1,5 +1,14 @@
 [
     {
+        "id": "pwa",
+        "title": "开始拥抱pwa应用",
+        "subTitle": "我的Progressive Web App探究",
+        "banner": "https://ae01.alicdn.com/kf/HTB1vpWybL1H3KVjSZFH762KppXas.png",
+        "date": "05/26/2019",
+        "mark": "Progressive Web App",
+        "tip": "pwa 的进阶"
+    },
+    {
         "id": "web_wechat",
         "title": "微信公众号网页开发项目总结",
         "subTitle": "微信公众号网页开发填坑史，解决 or 妥协！",
@@ -16,6 +25,15 @@
         "date": "05/30/2019",
         "mark": "代码高亮",
         "tip": "实用包试用报告"
+    },
+    {
+        "id": "vue_webpack",
+        "title": "vue-cli 3.0项目中的webpack配置分析学习",
+        "subTitle": "让我们来通过vue-cli3的配置来逐渐熟悉webpack吧",
+        "banner": "https://ae01.alicdn.com/kf/HTB1OHVibGSs3KVjSZPi763siVXaD.png",
+        "date": "06/05/2019",
+        "mark": "webpack",
+        "tip": "webpack进阶之路"
     },
     {
         "id": "node_image",
@@ -81,15 +99,7 @@
         "mark": "css animation",
         "tip": "CSS动画技能提升"
     },
-    {
-        "id": "vue_webpack",
-        "title": "vue-cli 3.0项目中的webpack配置分析学习",
-        "subTitle": "让我们来通过vue-cli3的配置来逐渐熟悉webpack吧",
-        "banner": "https://ae01.alicdn.com/kf/HTB1OHVibGSs3KVjSZPi763siVXaD.png",
-        "date": "06/05/2019",
-        "mark": "webpack",
-        "tip": "webpack进阶之路"
-    },
+
     {
         "id": "atom_plugin",
         "title": "写一个atom的插件",
@@ -99,15 +109,7 @@
         "mark": "atom",
         "tip": "atom plugin 初尝试"
     },
-    {
-        "id": "pwa",
-        "title": "开始拥抱pwa应用",
-        "subTitle": "我的Progressive Web App探究",
-        "banner": "https://ae01.alicdn.com/kf/HTB1vpWybL1H3KVjSZFH762KppXas.png",
-        "date": "05/26/2019",
-        "mark": "Progressive Web App",
-        "tip": "pwa 的进阶"
-    },
+
     {
         "id": "weex",
         "title": "weex项目开发总结",

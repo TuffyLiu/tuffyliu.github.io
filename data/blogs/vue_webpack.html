@@ -7,12 +7,21 @@
         又二脸懵逼。不会呀，代码是实时更新的呀，那到底是怎么实现的呢？<br>
         访问的代码在哪里呢？是怎么监测本地磁盘，进行热更新的呢？
     </p>
-    <p></p>
+    <p>首先参考 <a href="https://www.webpackjs.com/concepts/" target="_blank" rel="noopener noreferrer">官方中文文档</a> </p>
 </section>
 <section>
     <p>通过运行 vue inspect > output.js 把配置文件道出如下，我们来逐条分析。</p>
-    <pre>
-        <code class="language-javascript">
-        </code>
-    </pre>
+    <a  target="_blank" rel="noopener noreferrer" href="data/demo/vue-webpack/output.js">点击下载配置文件 output.js</a>
+</section>
+<section>
+    <pre><code class="language-javascript">mode: 'development'</code></pre>
+    <p>参考：<a target="_blank" rel="noopener noreferrer" href="https://juejin.im/post/58293502a0bb9f005767ba2f">官方文档</a></p>
+    <p>mode的配置可以根据不同的模式运行不同的方式，一般来讲会包含基本2种 production development,
+        署环境（Deployment environment）的不同来配置不同的打包方式，如可以添加Testing Staging</p>
+    <p>再Vue Cli 种可以在主目录下添加 .env 文件来指定环 <a target="_blank" rel="noopener noreferrer" href="https://cli.vuejs.org/zh/guide/mode-and-env.html#%E6%A8%A1%E5%BC%8F">环境变量和模式</a></p>
+</section>
+<section>
+    <pre><code class="language-javascript">devtool: 'cheap-module-eval-source-map'</code></pre>
+    <p>参考： <a target="_blank" rel="noopener noreferrer" href="https://juejin.im/post/58293502a0bb9f005767ba2f">[webpack] devtool里的7种SourceMap模式是什么鬼？</a></p>
+    <p></p>
 </section>
