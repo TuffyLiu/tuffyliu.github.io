@@ -7,7 +7,8 @@
         又二脸懵逼。不会呀，代码是实时更新的呀，那到底是怎么实现的呢？<br>
         访问的代码在哪里呢？是怎么监测本地磁盘，进行热更新的呢？
     </p>
-    <p>首先参考 <a href="https://www.webpackjs.com/concepts/" target="_blank" rel="noopener noreferrer">官方中文文档</a> </p>
+    <p>首先参考 <a href="https://webpack.docschina.org/configuration/" target="_blank" rel="noopener noreferrer">官方中文文档</a> </p>
+    <p>中文文档中有一些配置项说明不齐全<a href="https://webpack.js.org/configuration/devtool/#root"> 英文官方文档</a></p>
 </section>
 <section>
     <p>通过运行 vue inspect > output.js 把配置文件道出如下，我们来逐条分析。</p>
@@ -21,7 +22,70 @@
     <p>再Vue Cli 种可以在主目录下添加 .env 文件来指定环 <a target="_blank" rel="noopener noreferrer" href="https://cli.vuejs.org/zh/guide/mode-and-env.html#%E6%A8%A1%E5%BC%8F">环境变量和模式</a></p>
 </section>
 <section>
-    <pre><code class="language-javascript">devtool: 'cheap-module-eval-source-map'</code></pre>
-    <p>参考： <a target="_blank" rel="noopener noreferrer" href="https://juejin.im/post/58293502a0bb9f005767ba2f">[webpack] devtool里的7种SourceMap模式是什么鬼？</a></p>
-    <p></p>
+    <pre><code class="language-javascript">devtool: 'cheap-module-eval-source-map',
+// 生成一个没有列信息（column-mappings）的 SourceMaps 文件，同时 loader 的 sourcemap 也被简化为只包含对应行的。</code></pre>
+    <p>参考: <a target="_blank" rel="noopener noreferrer" href="https://juejin.im/post/58293502a0bb9f005767ba2f">[webpack] devtool里的7种SourceMap模式是什么鬼？</a></p>
+    <p>用于控制webpack的打包执行模式，开发模式推荐使用cheap-module-eval-source-map， 生产环境推荐cheap-module-source-map </p>
+</section>
+<section>
+    <pre><code class="language-javascript">node: {
+    setImmediate: false, //
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+    child_process: 'empty'
+}</code></pre>
+    <p>参考: <a href="https://webpack.js.org/configuration/node/#node">官方文档</a></p>
+    <p>Node 的全局配置</p>
+    <ul class="list">
+        <li>ture: 如果存在这个包则使用这个包,如果不存在则会引入对应的polyfill（以现有的包实现对应功能），使得能使用。</li>
+        <li>false: 什么都不提供，没有这个包调用这个包就报错</li>
+        <li>empty: 预先提供一个空对象(别报错～～我会自己引入的)</li>
+    </ul>
+    <br>
+    <p>由上扯到Node的包的作用的科普</p>
+    <ul class="list">
+        <li><a href="https://nodejs.org/api/timers.html#timers_class_immediate" target="_blank" rel="noopener noreferrer">setImmediate</a>: Node定时器Timer中的一种，让任务在指定时间运行. <a href="http://www.ruanyifeng.com/blog/2018/02/node-event-loop.html" target="_blank" rel="noopener noreferrer">《阮一峰 - Node 定时器详解》</a> </li>
+        <li><a href="https://nodejs.org/api/dgram.html" target="_blank" rel="noopener noreferrer">dgram</a>: 构建UDP（User Datagram Protocol, 用户数据报协议,和TCP一样都在传输层，位于IP协议之上）服务器。<a href="https://itbilu.com/nodejs/core/NJh5k9Sj.html" target="_blank" rel="noreferrer noopener">《Node.js用户数据报dgram模块的使用》</a></li>
+        <li><a href="https://nodejs.org/api/fs.html" target="_blank" rel="noopener noreferrer">fs</a>:  文件管模块, 注意每个接口都有对应的异步和同步处理</li>
+        <li><a href="https://nodejs.org/api/net.html" target="_blank" rel="noopener noreferrer">net</a>: 用于创建基于流的TCP和IPC的服务器与客户端</li>
+        <li><a href="https://nodejs.org/api/tls.html" target="_blank" rel="noopener noreferrer">tls</a>: 为加密的流传输提供SSL/TLS。 <a href="http://tuchangwei.github.io/2015/09/25/-%E8%AF%91-%E5%A6%82%E4%BD%95%E7%94%A8Node-js%E5%AE%9E%E7%8E%B0SSL-TLS/">《[译]如何用Node.js实现SSL/TLS》</a> </li>
+        <li><a href="https://nodejs.org/api/child_process.html" target="_blank" rel="noopener noreferrer">child_process</a>: 子进程 <a href="https://segmentfault.com/a/1190000016169207">《深入解析child_process模块和cluster模块》</a> </li>
+    </ul>
+</section>
+<section>
+<pre><code class="language-javascript">output: {
+  path: '/Users/liuguilian/Project/tuffy-home/dist', // 目标输出目录 path 的绝对路径
+  filename: '[name].js', // 输出文件的文件名
+  publicPath: '/', // 基础公共路径，可使用相对路径或者cdn路径
+  globalObject: 'this', //配置运行时的全局对象引用
+}</code></pre>
+    <p>参考: <a href="https://webpack.js.org/configuration/output/" target="_blank" rel="noopener noreferrer">官方文档</a></p>
+    <p>控制webpack如何向硬盘写入编译文件，<a href="https://juejin.im/post/5ae9ae5e518825672f19b094" target="_blank" rel="noopener noreferrer">Webpack中publicPath详解</a></p>
+</section>
+<section>
+<pre><code class="language-javascript">resolve: {
+  alias: { // 用于确保模块引入变得简单
+    '@': '/Users/liuguilian/Project/tuffy-home/src', // 常用目录
+    vue$: 'vue/dist/vue.runtime.esm.js' // vue 只包含运行时版，基于构建工具使用，不能直接使用于浏览器
+  },
+  extensions: [ // 自动解析确定的扩展
+    '.mjs',
+    '.js',
+    '.jsx',
+    '.vue',
+    '.json',
+    '.wasm',
+    '.ts',
+    '.tsx'
+  ],
+  modules: [ // 告诉webpack解析模块时应该搜索的目录
+    'node_modules',
+    '/Users/liuguilian/Project/tuffy-home/node_modules',
+    '/Users/liuguilian/Project/tuffy-home/node_modules/@vue/cli-service/node_modules'
+  ]
+}</code></pre>
+    <p>参考: <a href="https://webpack.js.org/configuration/node/#node">官方文档</a></p>
+    <p>配置模块的解析方式</p>
 </section>
