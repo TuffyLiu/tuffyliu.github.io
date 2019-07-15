@@ -86,6 +86,321 @@
     '/Users/liuguilian/Project/tuffy-home/node_modules/@vue/cli-service/node_modules'
   ]
 }</code></pre>
-    <p>参考: <a href="https://webpack.js.org/configuration/node/#node">官方文档</a></p>
+    <p>参考: <a href="https://webpack.js.org/configuration/node/#node" target="_blank" rel="noopener noreferrer">官方文档</a></p>
     <p>配置模块的解析方式</p>
+</section>
+
+<section>
+<pre><code class="language-javascript">resolveLoader: {
+    modules: [
+      '/Users/liuguilian/Project/tuffy-home/node_modules/@vue/cli-plugin-typescript/node_modules',
+      '/Users/liuguilian/Project/tuffy-home/node_modules/@vue/cli-plugin-babel/node_modules',
+      'node_modules',
+      '/Users/liuguilian/Project/tuffy-home/node_modules',
+      '/Users/liuguilian/Project/tuffy-home/node_modules/@vue/cli-service/node_modules'
+    ]
+  },
+</code></pre>
+<p>参考: <a href="https://webpack.js.org/configuration/resolve/#resolveloader" target="_blank" rel="noopener noreferrer">官方文档</a></p>
+<p>用于解析webpack的loader包，与resolve对象的属性集合相同（配置方式相同）</p>
+</section>
+
+<section>
+<pre><code class="language-javascript">module: {
+    noParse: /^(vue|vue-router|vuex|vuex-router-sync)$/, // 不去解析匹配的文件，忽略大型的library可以提高构建性能
+    rules: [] // 规则数组，应用于模块的loader或者parser
+}
+</code></pre>
+<p>参考: <a href="https://webpack.js.org/configuration/module/#modulenoparse" target="_blank" rel="noopener noreferrer">官方文档</a></p>
+<p>module 决定了如何处理项目中的不同类型的模块</p>
+</section>
+
+<h3>下面是rules的规则的详细解析</h3>
+
+<section>
+<pre><code class="language-javascript">/* config.module.rule('vue') */
+{
+    test: /\.vue$/, //所有.vue后缀的文件应用
+    use: [
+      /* config.module.rule('vue').use('cache-loader') */
+      {
+        loader: 'cache-loader', // 在一些性能开销较大的loader之间添加，将结果缓存到磁盘里面。
+        options: {
+          cacheDirectory: '/Users/liuguilian/Project/tuffy-home/node_modules/.cache/vue-loader', // 缓存地址
+          cacheIdentifier: '353e8042' // 缓存id, 用户后期存储
+      },
+      /* config.module.rule('vue').use('vue-loader') */
+      {
+        loader: 'vue-loader', //.vue文件（单文件组建）加载用，
+        options: {
+          compilerOptions: { // 模版编译器的选项
+            preserveWhitespace: false // 放弃模版标签之间的空格
+          },
+          cacheDirectory: '/Users/liuguilian/Project/tuffy-home/node_modules/.cache/vue-loader', //开启基于文件系统的模版编译缓存（用于cache-loader）
+          cacheIdentifier: '353e8042'
+        }
+      }
+    ]
+}</code></pre>
+<p>参考： </p>
+<p>
+    <a href="https://www.webpackjs.com/loaders/cache-loader/" target="_blank" rel="noopener noreferrer">cache-loaders说明</a><br>
+    <a href="https://vue-loader.vuejs.org/zh/" target="_blank" rel="noopener noreferrer">vue-loader说明</a><br>
+    Vue Loader 还提供了很多酷炫的特性：<br>
+    <ul class="list">
+        <li>允许为Vue组建的每个部分使用其他的webpack loader, 例如在<code>&lt;style&gt;</code> 中使用Sass和在<code>&lt;template&gt;</code>中使用Pug</li>
+        <li>允许一个.vue文件中使用自定义块，并对其运用自定义的loader链；</li>
+        <li>使用webpack loader 将<code>&lt;style&gt;</code> 和 <code>&lt;template&gt;</code>中引用的资源当作模块依赖来处理</li>
+        <li>为每个组件模拟出scoped CSS</li>
+        <li>在开发过程中使用热重载来保持状态</li>
+    </ul>
+</p>
+</section>
+
+<section>
+<pre><code class="language-javascript">/* config.module.rule('images') */
+{
+    test: /\.(png|jpe?g|gif|webp)(\?.*)?$/,
+    use: [
+      /* config.module.rule('images').use('url-loader') */
+      {
+        loader: 'url-loader',
+        options: {
+          limit: 4096, // 限制打包图片的大小
+          fallback: { // 当文件超过limit时调用
+            loader: 'file-loader', // 文件加载loader
+            options: {
+              name: 'img/[name].[hash:8].[ext]' // 民命规则 + 8为位hash
+            }
+          }
+        }
+      }
+    ]
+},
+/* config.module.rule('svg') */
+ {
+   test: /\.(svg)(\?.*)?$/,
+   use: [
+     /* config.module.rule('svg').use('file-loader') */
+     {
+       loader: 'file-loader',
+       options: {
+         name: 'img/[name].[hash:8].[ext]'
+       }
+     }
+   ]
+ },
+ /* config.module.rule('media') */
+ {
+   test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+   use: [
+     /* config.module.rule('media').use('url-loader') */
+     {
+       loader: 'url-loader',
+       options: {
+         limit: 4096,
+         fallback: {
+           loader: 'file-loader',
+           options: {
+             name: 'media/[name].[hash:8].[ext]'
+           }
+         }
+       }
+     }
+   ]
+ },
+ /* config.module.rule('fonts') */
+ {
+   test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
+   use: [
+     /* config.module.rule('fonts').use('url-loader') */
+     {
+       loader: 'url-loader',
+       options: {
+         limit: 4096,
+         fallback: {
+           loader: 'file-loader',
+           options: {
+             name: 'fonts/[name].[hash:8].[ext]'
+           }
+         }
+       }
+     }
+   ]
+ },
+</code></pre>
+<p>参考：<br>
+    <a href="https://webpack.docschina.org/loaders/url-loader/"  target="_blank" rel="noopener noreferrer">url-loader说明</a>
+    <p>用于将图片files转换成base64 URLS</p>
+    <a href="https://webpack.docschina.org/loaders/file-loader/"  target="_blank" rel="noopener noreferrer">file-loader说明</a>
+    <p>将在文件中import/require的文件生成规则name,放到output目录</p>
+</p>
+</section>
+
+<section>
+<pre><code class="language-javascript">/* config.module.rule('pug') */
+{
+    test: /\.pug$/,
+    oneOf: [ // 表示对该资源只应用第一个匹配的规则，一般结合resourceQuery使用
+      /* config.module.rule('pug').oneOf('pug-vue') */
+      {
+        resourceQuery: /vue/, // 符合vue文件的使用
+        use: [
+          /* config.module.rule('pug').oneOf('pug-vue').use('pug-plain-loader') */
+          {
+            loader: 'pug-plain-loader' //将pug temolates 转成 html
+          }
+        ]
+      },
+      /* config.module.rule('pug').oneOf('pug-template') */
+      {
+        use: [
+          /* config.module.rule('pug').oneOf('pug-template').use('raw') */
+          {
+            loader: 'raw-loader' // 将import的文件以string的形式引入
+          },
+          /* config.module.rule('pug').oneOf('pug-template').use('pug-plain') */
+          {
+            loader: 'pug-plain-loader'
+          }
+        ]
+      }
+    ]
+}</code></pre>
+<p>参考：<br>
+    <a href="https://www.npmjs.com/package/pug-plain-loader" target="_blank" rel="noopener noreferrer">pug-plain-loader使用说明</a><br>
+    <a href="https://www.webpackjs.com/loaders/raw-loader/" target="_blank" rel="noopener noreferrer">raw-loader使用说明</a><br>
+</p>
+</section>
+<section>
+<pre><code class="language-javascript">/* config.module.rule('css') */
+{
+    test: /\.css$/,
+    oneOf: [ // 使用最先匹配到的使用
+      /* config.module.rule('css').oneOf('vue-modules') */
+      {
+        resourceQuery: /module/,
+        use: [
+          /* config.module.rule('css').oneOf('vue-modules').use('vue-style-loader') */
+          {
+            loader: 'vue-style-loader', //
+            options: {
+              sourceMap: false,
+              shadowMode: false
+            }
+          },
+          /* config.module.rule('css').oneOf('vue-modules').use('css-loader') */
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: false,
+              importLoaders: 2,
+              modules: true,
+              localIdentName: '[name]_[local]_[hash:base64:5]'
+            }
+          },
+          /* config.module.rule('css').oneOf('vue-modules').use('postcss-loader') */
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: false
+            }
+          }
+        ]
+      },
+      /* config.module.rule('css').oneOf('vue') */
+      {
+        resourceQuery: /\?vue/,
+        use: [
+          /* config.module.rule('css').oneOf('vue').use('vue-style-loader') */
+          {
+            loader: 'vue-style-loader',
+            options: {
+              sourceMap: false,
+              shadowMode: false
+            }
+          },
+          /* config.module.rule('css').oneOf('vue').use('css-loader') */
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: false,
+              importLoaders: 2
+            }
+          },
+          /* config.module.rule('css').oneOf('vue').use('postcss-loader') */
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: false
+            }
+          }
+        ]
+      },
+      /* config.module.rule('css').oneOf('normal-modules') */
+      {
+        test: /\.module\.\w+$/,
+        use: [
+          /* config.module.rule('css').oneOf('normal-modules').use('vue-style-loader') */
+          {
+            loader: 'vue-style-loader',
+            options: {
+              sourceMap: false,
+              shadowMode: false
+            }
+          },
+          /* config.module.rule('css').oneOf('normal-modules').use('css-loader') */
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: false,
+              importLoaders: 2,
+              modules: true,
+              localIdentName: '[name]_[local]_[hash:base64:5]'
+            }
+          },
+          /* config.module.rule('css').oneOf('normal-modules').use('postcss-loader') */
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: false
+            }
+          }
+        ]
+      },
+      /* config.module.rule('css').oneOf('normal') */
+      {
+        use: [
+          /* config.module.rule('css').oneOf('normal').use('vue-style-loader') */
+          {
+            loader: 'vue-style-loader',
+            options: {
+              sourceMap: false,
+              shadowMode: false
+            }
+          },
+          /* config.module.rule('css').oneOf('normal').use('css-loader') */
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: false,
+              importLoaders: 2
+            }
+          },
+          /* config.module.rule('css').oneOf('normal').use('postcss-loader') */
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: false
+            }
+          }
+        ]
+      }
+    ]
+},</code></pre>
+<p>参考：<br>
+    <a href="https://github.com/vuejs/vue-style-loader" target="_blank" rel="noopener noreferrer">vue-style-loader使用说明</a><br>
+    <a href="https://github.com/vuejs/vue-style-loader" target="_blank" rel="noopener noreferrer">css-loader使用说明</a><br>
+    <a href="https://github.com/vuejs/vue-style-loader" target="_blank" rel="noopener noreferrer">css-loader使用说明</a><br>
+</p>
 </section>
