@@ -18,6 +18,15 @@
         "tip": "微信公众号网页开发"
     },
     {
+        "id": "interview",
+        "title": "面试准备基础复习",
+        "subTitle": "面试很多时候都会问一些基础，提前复习",
+        "banner": "https://ae01.alicdn.com/kf/HTB1TIfHbkT2gK0jSZPcq6AKkpXam.jpg",
+        "date": "07/24/2019",
+        "mark": "面试",
+        "tip": "面试准备之前端基础"
+    },
+    {
         "id": "highlightjs_prismjs",
         "title": "Highlight.js VS Prismjs",
         "subTitle": "Highlight.js 和 Prismjs是在github上start前2的代码高亮包",

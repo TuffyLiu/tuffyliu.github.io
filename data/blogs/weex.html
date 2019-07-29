@@ -8,6 +8,50 @@
 </section>
 
 <section>
-    <p><a href="https://weex.apache.org/zh/">坑很多的官方教程</a></p>
-    <p><a href="https://tech.youzan.com/youzan-weex-framework-introduction/">基于weex的有赞无线开发框架</a></p>
+    <p><a target="_blank" rel="noopener noreferrer" href="https://weex.apache.org/zh/">坑很多的官方教程</a></p>
+    <p><a target="_blank" rel="noopener noreferrer" href="https://tech.youzan.com/youzan-weex-framework-introduction/">基于weex的有赞无线开发框架</a></p>
+</section>
+<section>
+    <h3>关于调试</h3>
+    <p>
+        weex 的调试真的很艰难～～而在helloTalk的页面开发中使用官方的weex playground调试只能调试一些样式，
+        而且在helloTalk的app中也有可能渲染不正确。
+        因为我是前端过来用weex的更偏向于先使用chorme调试样式，调试好了再ios,再安卓～～
+        在实际的开发中三端的表现真的很不一致～～
+    </p>
+    <p>
+        因为是直接在app上测试的，没办法看调试信息，报错也不知道啥回事。
+        然后Alex小哥用node写了一个简单的接收和打印用的小的本地服务器，然后需要在weex端再封装一个debug方法，
+        像这个服务器post数据打印到自己的开发机子～～（工具链真的很重要）
+        <a target="_blank" rel="noopener noreferrer" href="data/demo/weex/index.js">node 写的weex debug(简单http服务器)</a>
+    </p>
+<pre><code class="language-javascript">_log(message, level, ...tag) {
+    tag.splice(0, 0, weex.config.env.platform);
+    // 将log信息打印到 weex debug page上
+    console.log(JSON.stringify({
+        tag,
+        level,
+        message
+    }));
+    const url = weex.config.bundleUrl.match(/https?:\/\/([0-9]|[a-zA-Z]|\.|-)*/)[0] + ':8100/log';
+    stream.fetch({
+        method: 'POST',
+        url: url,
+        type: 'json',
+        body: JSON.stringify({
+            tag,
+            level,
+            message
+        })
+    });
+},
+</code></pre>
+
+
+</section>
+<section>
+    <h3>word-break 行为是不可预测</h3>
+    <p>
+        因为app中的每个单词都需要点击克翻译而word-break又不可测，做不到英语单词换行。所以
+    </p>
 </section>
