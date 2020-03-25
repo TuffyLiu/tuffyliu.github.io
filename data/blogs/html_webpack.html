@@ -1,0 +1,224 @@
+<section style="margin-right: 250px;">
+    <p>
+        这个问题的需求出发点是,我们公司要新开发一个官网.官方网站要考虑到SEO（Search Engine Optimization）,所以考虑以静态的方式部署.
+        经常写vue项目的我习惯了官方的工程化,所有的包引入都非常的方便.所以干脆自己用webpack写了一个工程化打包模版.
+    </p>
+</section>
+<section>
+    <p>模版目录如下</p>
+    <pre><code class="language-md">
+.
+├── dist/                                # 编译后的文件目录
+│   ├── css/                             # 编译后的css文件目录
+│   ├── img/                             # 编译后的image文件目录
+│   ├── js/                              # 编译后的js文件目录
+│   ├── index.html                       # 编译后的html文件目录
+│   ├── about.html                       # 编译后的html文件目录
+│   └── ...                              
+├── public/                              # 公用的静态文件
+│   ├── favicon.ico                      # 网站图标
+│   ├── index.html                       # 网站的公用html模版,
+│   └── robots.txt                       # 搜索引擎蜘蛛
+├── src/                                 # 项目的主要代码
+│   ├── assets/                          # 存放公用的文件
+│   │   ├── css/                         # 公用css文件
+│   │   ├── js/                          # 公用js文件
+│   │   └── img/                         # 公用iamge文件
+│   ├── components/                      # 公用的组件
+│   │   ├── header/                      # 公用的头部菜单组件
+│   │   └── ...  
+│   └── views/                           # 特定的page页面的详细代码
+│       ├── about/                       # about页面的代码
+│       │   ├── index.css                # css文件
+│       │   ├── index.html               # html文件
+│       │   ├── index.js                 # js文件
+│       │   └── index.json               # 配置文件 主要用于配置title
+│       └── ...  
+├── .gitignore                           # git忽略文件
+├── package.json                         # 包依赖
+├── postcss.config.js                    # PostCSS config
+└── webpack.config.js                    # webpack build config
+
+    </code></pre>
+</section>
+<section>
+    <h3>webpack的配置文件如下</h3>
+    <pre><code class="language-js">
+const path = require('path');
+const fs = require('fs');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
+module.exports = env => {
+    const plugins = [
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].[chunkhash].css'
+        })
+    ];
+    if (env.NODE_ENV === 'production') {
+        plugins.push(new ManifestPlugin());
+        plugins.push(new CleanWebpackPlugin());
+        plugins.push(
+            new CopyPlugin([
+                {
+                    from: path.resolve(__dirname, 'public/robots.txt'),
+                    to: path.resolve(__dirname, 'dist/robots.txt'),
+                    toType: 'file'
+                }
+            ])
+        );
+    }
+
+    let files = fs.readdirSync(path.resolve(__dirname, 'src/views'));
+    files = files
+        .filter(file => {
+            return file !== '.DS_Store';
+        })
+        .map(file => {
+            const config = JSON.parse(fs.readFileSync(path.resolve(__dirname, `src/views/${file}/index.json`)));
+            return {
+                name: file,
+                ...config
+            };
+        });
+
+    const entry = {};
+
+    files.forEach(page => {
+        plugins.push(
+            new HtmlWebpackPlugin({
+                chunks: [page.name],
+                favicon: path.resolve(__dirname, './public/favicon.ico'),
+                filename: `${page.name}.html`,
+                template: path.resolve(__dirname, './public/index.html'),
+                key: page.name,
+                title: page.title,
+                minify: {
+                    collapseWhitespace: true
+                }
+            })
+        );
+        entry[page.name] = path.resolve(__dirname, `./src/views/${page.name}/index.js`);
+    });
+
+    return {
+        mode: env.NODE_ENV,
+        entry: entry,
+        devtool: env.NODE_ENV === 'production' ? 'none' : 'inline-source-map',
+        output: {
+            filename: 'js/[name].[chunkhash].js',
+            path: path.resolve(__dirname, 'dist'),
+            publicPath: env.NODE_ENV === 'production' ? '/' : '/'
+        },
+        stats: {
+            children: false
+        },
+        optimization: {
+            minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
+        },
+        plugins: plugins,
+        module: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    exclude: path.resolve(__dirname, 'node_modules'),
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            [
+                                '@babel/preset-env',
+                                {
+                                    useBuiltIns: 'usage',
+                                    corejs: 2,
+                                    targets: {
+                                        ie: 9
+                                    }
+                                }
+                            ]
+                        ]
+                    }
+                },
+                {
+                    test: /\.css$/,
+                    use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+                },
+                {
+                    test: /\.(png|svg|jpg|gif)$/,
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                                outputPath: 'img'
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    };
+};        
+    </code></pre>
+</section>
+<section>
+    <h3>webpack的相关包介绍</h3>
+    <p>
+        <a href="https://www.webpackjs.com/concepts/" target="_blank" rel="noopener noreferrer">webpack</a>
+    </p>
+    <p>
+        <a href="http://nodejs.cn/api/path.html" target="_blank" rel="noopener noreferrer">node的path模块</a>
+        —— 主要用到path.resolve() 方法将路径或路径片段的序列解析为绝对路径
+    </p>
+    <p>
+        <a href="https://webpack.js.org/plugins/terser-webpack-plugin/#root" target="_blank" rel="noopener noreferrer">terser-webpack-plugin</a>
+        —— 用于压缩js
+    </p>
+    <p>
+        <a href="https://webpack.js.org/plugins/mini-css-extract-plugin/#root" target="_blank" rel="noopener noreferrer">mini-css-extract-plugin</a>
+        —— 将CSS提取到单独的文件中。它为每个包含CSS的JS文件创建一个CSS文件。它支持CSS和SourceMap的按需加载
+    </p>
+    <p>
+        <a href="https://github.com/NMFR/optimize-css-assets-webpack-plugin" target="_blank" rel="noopener noreferrer">optimize-css-assets-webpack-plugin</a>
+        —— 优化和压缩css
+    </p>
+    <p>
+        <a href="https://webpack.js.org/plugins/html-webpack-plugin/#root" target="_blank" rel="noopener noreferrer">html-webpack-plugin</a>
+        —— 为html文件中引入的外部资源如script、link动态添加每次compile后的hash，防止引用缓存的外部文件问题,可以生成创建html入口文件，比如单页面可以生成一个html文件入口，配置N个html-webpack-plugin可以生成N个页面入口
+    </p>
+    <p>
+        <a href="https://github.com/danethurber/webpack-manifest-plugin" target="_blank" rel="noopener noreferrer">webpack-manifest-plugin</a>
+        —— 生成一份资源清单的manifest.json的文件
+    </p>
+    <p>
+        <a href="https://www.npmjs.com/package/clean-webpack-plugin" target="_blank" rel="noopener noreferrer">clean-webpack-plugin</a>
+        —— 用于每次build之前清除dist文件里面的文件
+    </p>
+    <p>
+        <a href="https://webpack.js.org/plugins/copy-webpack-plugin/#root" target="_blank" rel="noopener noreferrer">copy-webpack-plugin</a>
+        —— 把特定的无需修改的public里面的文件拷贝到dist目录
+    </p>
+</section>
+
+<section>
+    <h3>关于做SEO</h3>
+    <p>1、html文件里的头部meta属性title/keywords/description</p>
+    <p>2、robot.txt </p>
+    <p>3、申请搜索引擎搜录<br/>
+        <a href="https://ziyuan.baidu.com/linksubmit/url">Daidu收录提交入口</a>
+        (非常难找,因为百度想收钱搜索排名,然后针对官网认证啥的还收每年几千的费用)而且要实现站长管理,
+        提交站点,管理关键词数据, 需要在页面头部添加baidu-site-verification 的 meta<br/>
+        <a href="https://support.google.com/webmasters/answer/183668#addsitemap">Google收录申请入口</a>提交站点地图, 需要在页面头部添加google-site-verification 的 meta<br/>
+    </p>
+
+</section>
+<section>
+    <h3>做官网非常好用的包</h3>
+    <p>wowjs 滚动页面时触发CSS 动画效果的插件</p>
+    <p>animate.css 是一个有趣的,跨浏览器的css3动画库</p>
+    <p>flickity 是一个支持触摸,响应迅速的幻灯片轮播插件</p>
+</section>
+

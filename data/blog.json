@@ -1,5 +1,14 @@
 [
     {
+        "id": "html_webpack",
+        "title": "webpack静态网站打包模版",
+        "subTitle": "用webpack写一个静态官网的工程化打包模版",
+        "banner": "https://raw.githubusercontent.com/webpack-contrib/awesome-webpack/master/media/awesome_webpack_branding.png",
+        "date": "03/25/20",
+        "mark": "webpack",
+        "tip": "webpack && SEO"
+    },
+    {
         "id": "pwa",
         "title": "开始拥抱pwa应用",
         "subTitle": "我的Progressive Web App探究",
