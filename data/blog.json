@@ -1,9 +1,18 @@
 [
     {
+        "id": "chorme_plugin",
+        "title": "chorme插件",
+        "subTitle": "用chorme插件写一个微信群全家福生成器",
+        "banner": "https://pic.downk.cc/item/5e854d34504f4bcb04a61d80.png",
+        "date": "04/02/20",
+        "mark": "chorme",
+        "tip": "chorme && plugin"
+    },
+    {
         "id": "html_webpack",
         "title": "webpack静态网站打包模版",
         "subTitle": "用webpack写一个静态官网的工程化打包模版",
-        "banner": "https://raw.githubusercontent.com/webpack-contrib/awesome-webpack/master/media/awesome_webpack_branding.png",
+        "banner": "https://pic.downk.cc/item/5e854a4e504f4bcb04a4ed8b.png",
         "date": "03/25/20",
         "mark": "webpack",
         "tip": "webpack && SEO"

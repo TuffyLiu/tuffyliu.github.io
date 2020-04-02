@@ -1,0 +1,126 @@
+<p>
+    公司的小姐姐们在做社群运营,需要为每一群生成全家福头像.问我看看能不能生成一个生成工具<br/>
+    github项目地址
+    <a href="https://github.com/TuffyLiu/wechat_avater_plugin" target="_blank" rel="noopener noreferrer">https://github.com/TuffyLiu/wechat_avater_plugin</a>
+</p>
+<h3>需求分析和解决方案</h3>
+<img style="width: 300px;margin: auto;" src="https://pic.downk.cc/item/5e854ff3504f4bcb04a77b0d.png" alt="" />
+<p>
+    1、怎么写chrome插件<br />
+    主要是区分content_scripts和background scripts的区别 <br />
+    2、需要群里面的所有微信的头像<br />
+    web版本的微信会一次性加载所有的微信头像,通过读取网页文件结构获取图片<br />
+    3、如何绘制圆<br />
+    使用canvas绘图,需要用到三角函数的知识~~最后由半径大小绘制等边多边形的方案实现<br />
+</p>
+
+<h3>chrome插件的写法</h3>
+<p>参考资料</p>
+<p>
+    <a href="https://developer.mozilla.org/zh-CN/docs/Mozilla/Add-ons/WebExtensions" target="_blank" rel="noopener noreferrer">MDN Extensions「扩展」教程</a>
+</p>
+<p>
+    <a href="https://developer.chrome.com/extensions" target="_blank" rel="noopener noreferrer">官方教程</a>
+</p>
+<p>
+    <a href="https://www.zhihu.com/question/20179805" target="_blank" rel="noopener noreferrer">知乎-如何从零开始写一个 Chrome 扩展？</a>
+</p>
+<p>借用知乎上面的话术<br />一个 Chrome 扩展其实就是一个配置（入口）文件 manifest.json 和一系列 html、css、js、图片文件的集合，所以只要有前端基础，写一个简单的 Chrome 扩展是分分钟的事情。</p>
+<p>
+    是的,只要你分清楚了content_scripts和background scripts的区别,作为前端工程师的你分分钟能写的出插件,下面是我的manifest.json配置</br>
+    
+</p>
+<pre>
+    <code class="language-js">
+// manifest.json
+
+{
+    "name": "全家福生成器",
+    "short_name": "全家福生成器",
+    "manifest_version": 2,
+    "version": "1.0",
+    "description": "幸福双翼微信头像全家福生成器",
+    "browser_action": {
+        "default_icon": "img/favicon-512x512.png", // 插件的头像
+        "default_title": "幸福双翼"
+    },
+    "icons": { // 多版本的头像大小,用户上线用
+        "16": "img/favicon-512x512.png",
+        "48": "img/favicon-512x512.png",
+        "128": "img/favicon-512x512.png"
+    },
+    "permissions": [ //当在这个域名下才使用
+        "https://wx2.qq.com/*"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://wx2.qq.com/*" //当在这个域名下才将css和js加载到文件中
+            ],
+            "css": [
+                "default.css"
+            ],
+            "js": [
+                "Sortable.min.js", // 用户于拖拽排序
+                "default.js" // 主要的执行结构
+            ]
+        }
+    ]
+}
+    </code>
+</pre>
+<p>
+    content_scripts和background scripts的代码是工作在不同的作用域的,她们之间的变量和数据存储是不互通的<br>
+
+    Content script 是你扩展的一部分，运行于一个特定的网页环境</br>
+    <a href="https://developer.mozilla.org/zh-CN/docs/Mozilla/Add-ons/WebExtensions/Content_scripts" target="_blank" rel="noopener noreferrer">关于content_scripts</a><br>
+
+    Content scripts 的两种加载方式</br>
+    1、声明式 </br>
+    manifest.json中使用content_scripts关键字, 可以要求浏览器每当加载一个与指定正则表达式匹配的网页时加载一个Content Script。</br>
+    (在我的 manifest.json中声明default.js和Sortable.min.js都为content_scripts)</br>
+    2、程序式</br>
+    使用 tabs.executeScript() API, 你可以在任何你想要的时候加载一个Content script 到一个指定的标签：比如，作为用户点击事件的回应。</br>
+    (在我项目中 main.js为content_scripts)</br>
+
+</p>
+
+<p>
+    background scripts 是后台脚本, 插件运行的环境, 插件启动后就常驻后台.这类脚本是运行在浏览器后台的，注意它是与当前浏览页面无关的</br>
+
+    <a href="https://blog.csdn.net/summerxiachen/article/details/78698878" target="_blank" rel="noopener noreferrer">Chrome插件中 popup,background,contantscript消息传递机制</a></br>
+
+    在我的项目中我只使用到了很简单的两个api
+    <pre>
+        <code class="language-js">
+chrome.browserAction.onClicked.addListener(tab => { // 监听插件按钮被点击
+    chrome.tabs.executeScript({ //加载一个Content script 
+        file: './main.js'
+    }, (e) => {
+        console.log(e);
+    });
+});
+        </code>
+    </pre>
+</p>
+
+
+<h3>如何画等边多边形</h3>
+<p>主要根据如下文章,根据三角函数计算</p>
+<a href="https://www.open-open.com/lib/view/open1490832217102.html" target="_blank" rel="noopener noreferrer">Canvas学习：绘制正多边形</a></br>
+<img style="width: 300px;" src="https://simg.open-open.com/show/d1b53803a748e641189e5aa4cf5a1f0c.png" alt="">
+
+<h3>最后成品</h3>
+
+<p>github项目地址
+    <a href="https://github.com/TuffyLiu/wechat_avater_plugin" target="_blank" rel="noopener noreferrer">https://github.com/TuffyLiu/wechat_avater_plugin</a></p>
+
+
+
+

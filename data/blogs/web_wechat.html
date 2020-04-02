@@ -116,3 +116,14 @@ scrollBehavior(to, from, savedPosition) {
         </code>
     </pre>
 </section>
+
+<section>
+    <h3>9.route的replace后路由记录丢失,无法返回</h3>
+    <p>在replace后添加reload</p>
+    <pre>
+        <code class="language-javascript">
+            router.replace(config);
+            window.location.reload();
+        </code>
+    </pre>
+</section>
