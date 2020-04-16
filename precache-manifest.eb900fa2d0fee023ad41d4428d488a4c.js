@@ -80,20 +80,16 @@ self.__precacheManifest = [
     "url": "/data/img/cook/8.jpg"
   },
   {
+    "revision": "40d0aa2971392e9b641716ea63aea662",
+    "url": "/data/img/cook/D0627849-0AF7-4CA9-91BE-3FE555429C6D-4454-0000074D5BBB87B0_tmp.JPG"
+  },
+  {
     "revision": "80e245c6b3bee0d4dd7a4b8d0d87c556",
     "url": "/data/img/cook/IMG_3150.JPG"
   },
   {
     "revision": "da120ddc59fcdc2f861010a4b4f7848d",
     "url": "/data/img/cook/5.JPG"
-  },
-  {
-    "revision": "b8265d2d1ef2c9f478d4f65948c0af3b",
-    "url": "/data/img/cook/4.jpeg"
-  },
-  {
-    "revision": "40d0aa2971392e9b641716ea63aea662",
-    "url": "/data/img/cook/D0627849-0AF7-4CA9-91BE-3FE555429C6D-4454-0000074D5BBB87B0_tmp.JPG"
   },
   {
     "revision": "b8265d2d1ef2c9f478d4f65948c0af3b",
@@ -104,6 +100,10 @@ self.__precacheManifest = [
     "url": "/data/img/cook/IMG_0221.jpg"
   },
   {
+    "revision": "b8265d2d1ef2c9f478d4f65948c0af3b",
+    "url": "/data/img/cook/4.jpeg"
+  },
+  {
     "revision": "a4312b696d5f4a01027dcdb8b36ccd0c",
     "url": "/data/img/cook/IMG_4204.jpg"
   },
@@ -112,20 +112,20 @@ self.__precacheManifest = [
     "url": "/data/img/cook/8.jpeg"
   },
   {
-    "revision": "0b70cd833cda3a4aa63408098c4ca03d",
-    "url": "/data/img/cook/IMG_3004.JPG"
-  },
-  {
     "revision": "22452e3bfe2fa61fc07a86649c0594d0",
     "url": "/data/img/cook/IMG_3002.JPG"
   },
   {
-    "revision": "512628235558679f10bf1865fc8fdaac",
-    "url": "/data/img/cook/IMG_4249.jpg"
+    "revision": "0b70cd833cda3a4aa63408098c4ca03d",
+    "url": "/data/img/cook/IMG_3004.JPG"
   },
   {
     "revision": "cfd85b0cdb550c05023a76ec084924f4",
     "url": "/data/demo/cursor_monster/audio/ohh.ogg"
+  },
+  {
+    "revision": "512628235558679f10bf1865fc8fdaac",
+    "url": "/data/img/cook/IMG_4249.jpg"
   },
   {
     "revision": "65521398700352b4050a32294168ae9e",
@@ -156,12 +156,12 @@ self.__precacheManifest = [
     "url": "/data/demo/sheet_animation/hand-pick.cur"
   },
   {
-    "revision": "c5b0832125f4248cd4e9a1c6177ca8c3",
-    "url": "/data/demo/sheet_animation/sheep_game.css"
-  },
-  {
     "revision": "11aae18141ba1075563dbfd3275f98bb",
     "url": "/data/demo/sheet_animation/index.html"
+  },
+  {
+    "revision": "c5b0832125f4248cd4e9a1c6177ca8c3",
+    "url": "/data/demo/sheet_animation/sheep_game.css"
   },
   {
     "revision": "def254598b5329034987a035c56046e1",
@@ -172,12 +172,12 @@ self.__precacheManifest = [
     "url": "/data/demo/word_letter/css/cavas_word.css"
   },
   {
-    "revision": "0470423f248dae244609e9aeb932d0d8",
-    "url": "/data/demo/weex/index.js"
-  },
-  {
     "revision": "ed69a6995212f10a29eb870b60c1e223",
     "url": "/data/demo/word_letter/index.html"
+  },
+  {
+    "revision": "0470423f248dae244609e9aeb932d0d8",
+    "url": "/data/demo/weex/index.js"
   },
   {
     "revision": "adb641ecef9ee90eadb4ff866f76c615",
@@ -268,20 +268,20 @@ self.__precacheManifest = [
     "url": "/data/demo/fireworks/img/hua2.png"
   },
   {
-    "revision": "f04256f4987986d7ea9b375f6502bd6d",
-    "url": "/data/demo/fireworks/img/hua3.png"
+    "revision": "688b7c9cf861f6a42fb3867cd02adf55",
+    "url": "/data/img/cook/6.JPG"
   },
   {
-    "revision": "bf1c414750d0d766329acc4dd0facb6a",
-    "url": "/data/demo/word_letter/img/banner.jpg"
+    "revision": "f04256f4987986d7ea9b375f6502bd6d",
+    "url": "/data/demo/fireworks/img/hua3.png"
   },
   {
     "revision": "462ef8dcac52338082db8cdfed725a5b",
     "url": "/data/demo/fireworks/img/cnbanbao.cn_201411717565466372.jpg"
   },
   {
-    "revision": "688b7c9cf861f6a42fb3867cd02adf55",
-    "url": "/data/img/cook/6.JPG"
+    "revision": "bf1c414750d0d766329acc4dd0facb6a",
+    "url": "/data/demo/word_letter/img/banner.jpg"
   },
   {
     "revision": "afa46705434382a303f83b216147f85d",
@@ -296,56 +296,56 @@ self.__precacheManifest = [
     "url": "/data/img/cook/5A7BAB94-7C83-4AA8-97B1-98D592F80F3D-4454-0000074D53C4AAB6_tmp.JPG"
   },
   {
-    "revision": "c464543f57d633eb3d80a617a1f01385",
-    "url": "/data/img/cook/3.jpg"
-  },
-  {
     "revision": "85856e1116dfd73b6f96cbb2b1b3394e",
     "url": "/data/demo/node_image/card.jpg"
+  },
+  {
+    "revision": "c464543f57d633eb3d80a617a1f01385",
+    "url": "/data/img/cook/3.jpg"
   },
   {
     "revision": "783c3fb3bee042c4a4fa0a473be0516d",
     "url": "/data/img/cook/0E54D0E1-94AC-46F4-9DCC-D1342D2B480E-5814-0000069F9F6FDD23_tmp.JPG"
   },
   {
-    "revision": "dc17011b1fda2a7bca29a4eb70e0c717",
-    "url": "/data/img/cook/IMG_0122.JPG"
-  },
-  {
     "revision": "ae535c5be0c5bf1847867121b80cbec6",
     "url": "/data/img/cook/1.JPG"
+  },
+  {
+    "revision": "dc17011b1fda2a7bca29a4eb70e0c717",
+    "url": "/data/img/cook/IMG_0122.JPG"
   },
   {
     "revision": "830c55d4ea1d12fd5b75772ce2a7df4d",
     "url": "/data/blogs/sheet_animation.html"
   },
   {
-    "revision": "a2a236e3a4419123a137d9e35b2071e9",
-    "url": "/data/blogs/interview.html"
+    "revision": "6194b00d4b83ea041390839fc13e1078",
+    "url": "/data/demo/canvas_sea/audio/96742__robinhood76__01650-underwater-bubbles.mp3"
   },
   {
-    "revision": "f47beadeba3f2f30d1d63b20791ec6eb",
-    "url": "/data/blogs/node_image.html"
-  },
-  {
-    "revision": "fa2979cd2272101407a15fcbc0eae8a1",
-    "url": "/data/cook.json"
+    "revision": "a4740fc6e08ada78a26bedf9b3d1a1c8",
+    "url": "/data/demo/canvas_video/clickVideo.css"
   },
   {
     "revision": "60274ffd5a46d940c1feb0de4dffda15",
     "url": "/data/demo/canvas_sea/index.html"
   },
   {
-    "revision": "0c88a77c4d2e856aef5597b1b51b217f",
-    "url": "/data/demo/canvas_video/clickVideo.js"
-  },
-  {
     "revision": "231eda49662ec8895e89418b750087ca",
     "url": "/data/demo/canvas_video/index.html"
   },
   {
-    "revision": "a4740fc6e08ada78a26bedf9b3d1a1c8",
-    "url": "/data/demo/canvas_video/clickVideo.css"
+    "revision": "0c88a77c4d2e856aef5597b1b51b217f",
+    "url": "/data/demo/canvas_video/clickVideo.js"
+  },
+  {
+    "revision": "0cd09385a08deeea14b5701284808414",
+    "url": "/data/blogs/electron.html"
+  },
+  {
+    "revision": "fa6938c9d0d72ca9cfc657d4d68633f3",
+    "url": "/data/blogs/html_webpack.html"
   },
   {
     "revision": "16b76b7c1b1c158b50474afdc8754e0f",
@@ -364,40 +364,40 @@ self.__precacheManifest = [
     "url": "/data/blogs/webrtc.html"
   },
   {
-    "revision": "ccf4519f2ec3c2d7d4dd071f303ac1cb",
+    "revision": "32780e5ca7f43efcf76c12f085b92742",
     "url": "/data/blogs/pwa.html"
   },
   {
-    "revision": "6194b00d4b83ea041390839fc13e1078",
-    "url": "/data/demo/canvas_sea/audio/96742__robinhood76__01650-underwater-bubbles.mp3"
+    "revision": "a2a236e3a4419123a137d9e35b2071e9",
+    "url": "/data/blogs/interview.html"
   },
   {
-    "revision": "86846bfbddf73f16eed4f75845ed9348",
-    "url": "/data/blogs/cursor_monster.html"
+    "revision": "f47beadeba3f2f30d1d63b20791ec6eb",
+    "url": "/data/blogs/node_image.html"
   },
   {
-    "revision": "fa6938c9d0d72ca9cfc657d4d68633f3",
-    "url": "/data/blogs/html_webpack.html"
+    "revision": "fa2979cd2272101407a15fcbc0eae8a1",
+    "url": "/data/cook.json"
   },
   {
     "revision": "67c3fa934dc43a69e286c451ec5ca9bf",
     "url": "/data/blogs/canvas_sea.html"
   },
   {
-    "revision": "c0f9ee736eec7b916532762adf340cc6",
-    "url": "/data/blogs/electron.html"
-  },
-  {
-    "revision": "b78fba221c597a44cea360dafc3cd027",
-    "url": "/data/blogs/fireworks.html"
+    "revision": "e6ab301abe5005a105d8e9079def61c7",
+    "url": "/data/blogs/highlightjs_prismjs.html"
   },
   {
     "revision": "d41d8cd98f00b204e9800998ecf8427e",
     "url": "/data/blogs/flex.html"
   },
   {
-    "revision": "e6ab301abe5005a105d8e9079def61c7",
-    "url": "/data/blogs/highlightjs_prismjs.html"
+    "revision": "b78fba221c597a44cea360dafc3cd027",
+    "url": "/data/blogs/fireworks.html"
+  },
+  {
+    "revision": "86846bfbddf73f16eed4f75845ed9348",
+    "url": "/data/blogs/cursor_monster.html"
   },
   {
     "revision": "0f99cf01e4ad279b2b46dee51ed9853d",

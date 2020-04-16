@@ -1,5 +1,29 @@
 <section style="margin-right: 250px;">
-    <p>尝试着使用electron写一个应用吧</p>
+    <p>因为公司老师需要批量生成图片<a href="#/blog-detail/node_image">《用node来读写excel批量生成证书》</a>,尝试着使用electron写一个有界面的应用吧. </p>
     <p><a href="https://electronjs.org/docs" target="_blank" rel="noopener noreferrer">官方文档</a></p>
     <p><a href="https://www.electronforge.io/cli" target="_blank" rel="noopener noreferrer">Electron Forge</a> 是一个用来构建现代化Electron应用的完善的工具, 将一些流行框架整合为“开箱即用”的模板</p>
+    <p><a href="https://www.electron.build/" target="_blank" rel="noopener noreferrer">electron-builder</a> 用来打包Electron应用</p>
+    <p><a href="https://github.com/electron/electron-api-demos/" target="_blank" rel="noopener noreferrer">electron-api-demos</a>里面有简单的例子可以参考</p>
+    <p><a href="https://github.com/electron/electron-quick-start" target="_blank" rel="noopener noreferrer">electron-quick-start</a>electron最小模版</p>
+
+</section>
+
+<section>
+    <p>最后的成果-<a href="https://github.com/TuffyLiu/image-maker" target="_blank" rel="noopener noreferrer">github 仓库</a></p>
+    我是将electron-quick-start clone 下来的基础上开发的看到目录里面有三个主要的js文件main.js/renderer.js/preload.js
+
+    <h3>main.js</h3>
+    <p>Modules to control application life and create native browser window</p>
+    <p>node本地客户端的所有操作</p>
+    <h3>renderer.js</h3>
+    <p>This file is required by the index.html file and will
+        be executed in the renderer process for that window.
+        No Node.js APIs are available in this process because
+        `nodeIntegration` is turned off. Use `preload.js` to
+        selectively enable features needed in the rendering
+        process.</p>
+    <p>index.html文件中执行的脚本,可以自由的执行Dom操作</p>
+    <h3>preload.js</h3>
+    <p>All of the Node.js APIs are available in the preload process. It has the same sandbox as a Chrome extension.</p>
+    <p>最快速预加载脚本, 最预先加载js文档.</p>
 </section>

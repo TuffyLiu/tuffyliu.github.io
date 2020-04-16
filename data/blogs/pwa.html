@@ -136,3 +136,8 @@
 <section>
     <h3>还有一个重要的点是必须是https～～Service worker 才会注册~~http访问是无效的</h3>
 </section>
+
+<p>
+    不要在微信项目中使用Service worker 因为不支持, safari 浏览器和chorme浏览器的支持不一致~~
+    chorme对于Service worker 的支持比较正常,而safari不关闭浏览器再开启的话,则不会加载新的文件
+</p>
