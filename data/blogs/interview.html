@@ -2,9 +2,7 @@
     <p>
         从欧阳同学处得一前端面试宝典，再次按照该宝典脉络收集整理复习查缺补漏～～
     </p>
-
 </section>
-
 
 <h1>JavaScript/EcmaScript</h1>
 
@@ -17,26 +15,30 @@
         <li>布尔值（boolean）: 表示真假true/false（原始类型）</li>
         <li>undefined: 表示未定义或不存在 （特殊类型）</li>
         <li>null: 表示空值，即此处的值为空（特殊类型)</li>
-        <li>object: 表示对象，即此处的值为空（合成类型）
-        </li>
+        <li>object: 表示对象，即此处的值为空（合成类型）</li>
         <li>symbol: 表示独一无二的值（ES6）,通过Symbol()函数生成（原始类型）</li>
-        <p>object是最复杂的数据类型，可以分为3个子类型。狭义的对象object/array/function,
-            狭义的对象和数组是两种不同的数据组合方式。<br>
-            函数是处理数据的方法，JS中把它当成一种数据类型，可以赋值给变量，为js的“函数式编程”奠定了基础。</p>
-        <p><a href="http://taobaofed.org/blog/2017/03/16/javascript-functional-programing/" target="_blank" rel="noopener noreferrer">
-            我眼中的 JavaScript 函数式编程
-        </a></p>
+        <p>
+            object是最复杂的数据类型，可以分为3个子类型。狭义的对象object/array/function, 狭义的对象和数组是两种不同的数据组合方式。<br />
+            函数是处理数据的方法，JS中把它当成一种数据类型，可以赋值给变量，为js的“函数式编程”奠定了基础。
+        </p>
+        <p>
+            <a href="http://taobaofed.org/blog/2017/03/16/javascript-functional-programing/" target="_blank" rel="noopener noreferrer">
+                我眼中的 JavaScript 函数式编程
+            </a>
+        </p>
     </ul>
     <h3>2、类型检查 typeof/ instanceof/ Object.prototype.toString</h3>
     <p></p>
     <ul class="list">
-        <li>typeof运算符可以返回一个值的数据类型
-            <p>数字、字符串、布尔值分别返回number、string、boolea,<br>
-                函数返回function,<br>
-                undefined返回undefined,<br>
-                null/object返回object,<br>
+        <li>
+            typeof运算符可以返回一个值的数据类型
+            <p>
+                数字、字符串、布尔值分别返回number、string、boolean,<br />
+                函数返回function,<br />
+                undefined返回undefined,<br />
+                null/object返回object,<br />
             </p>
-<pre>
+            <pre>
 <code class="language-js">typeof 123 // "number"
 typeof '123' // "string"
 typeof false // "boolean"
@@ -47,7 +49,8 @@ typeof [] // "object" 在js内部，数组本质上只是一种特殊的对象�
 typeof null // "object"  js第一版的时候把null当作object的一种特殊值,后面为了兼容 typeof null 返回 object就一直沿用了～～</code>
 </pre>
         </li>
-        <li>instanceof运算可以用于区分数组和对象
+        <li>
+            instanceof运算可以用于区分数组和对象
             <pre>
 <code class="language-js">const o = {};
 const a = [];
@@ -55,8 +58,9 @@ o instanceof Array // false
 a instanceof Array // true</code>
 </pre>
         </li>
-        <li>Object.prototype.toString方法返回一个表示对象的字符串，可以用来检测对象类型
-<pre>
+        <li>
+            Object.prototype.toString方法返回一个表示对象的字符串，可以用来检测对象类型
+            <pre>
 <code class="language-js">> Object.prototype.toString.call(null)
 '[object Null]'
 
@@ -85,7 +89,7 @@ a instanceof Array // true</code>
 '[object Array]'</code>
 </pre>
             <p>toString可以自定义一个方法来取代</p>
-<pre>
+            <pre>
 <code class="language-js">function Dog(name) {
     this.name = name;
 }
@@ -100,41 +104,59 @@ theDog.toString(); // "My name is Lily"</code>
 
     <h3>3、对象转换为原始类型 valueOf/ toString/ toPrimitive</h3>
     <ul>
-        <li>valueOf 返回指定对象的原始值,默认情况下该方法由Object后面的每个对象继承，
-            每个内置的核心对象都会覆盖此方法以返回适当的值，
-            不同类型对象的valueOf()方法返回值和返回类型均可能不同。
+        <li>
+            valueOf 返回指定对象的原始值,默认情况下该方法由Object后面的每个对象继承， 每个内置的核心对象都会覆盖此方法以返回适当的值， 不同类型对象的valueOf()方法返回值和返回类型均可能不同。
             <table>
                 <thead>
                     <th>对象</th>
                     <th>返回值</th>
                 </thead>
                 <tbody>
-                    <tr><td>Array</td><td>返回数组对象本身</td></tr>
-                    <tr><td>Boolean</td><td>布尔值</td></tr>
-                    <tr><td>Date</td><td>存储的时间是从1970年1月1日午夜开始计的毫秒数UCT</td></tr>
-                    <tr><td>Function</td><td>函数本身</td></tr>
-                    <tr><td>Number</td><td>数字值</td></tr>
-                    <tr><td>Object</td><td>对象本身。这是默认的情况</td></tr>
-                    <tr><td>String</td><td>字符串值</td></tr>
-                    <tr><td>Math/Error</td><td>没有valueOf方法</td></tr>
+                    <tr>
+                        <td>Array</td>
+                        <td>返回数组对象本身</td>
+                    </tr>
+                    <tr>
+                        <td>Boolean</td>
+                        <td>布尔值</td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td>存储的时间是从1970年1月1日午夜开始计的毫秒数UCT</td>
+                    </tr>
+                    <tr>
+                        <td>Function</td>
+                        <td>函数本身</td>
+                    </tr>
+                    <tr>
+                        <td>Number</td>
+                        <td>数字值</td>
+                    </tr>
+                    <tr>
+                        <td>Object</td>
+                        <td>对象本身。这是默认的情况</td>
+                    </tr>
+                    <tr>
+                        <td>String</td>
+                        <td>字符串值</td>
+                    </tr>
+                    <tr>
+                        <td>Math/Error</td>
+                        <td>没有valueOf方法</td>
+                    </tr>
                 </tbody>
             </table>
         </li>
         <li>Object.prototype.toString (如上一小节所说)</li>
-        <li>Symbol.toPrimitive 是一个内置的Symbol值，它是作为对象的函数值属性存在的，当一个对象转换为对应的原始值时，会调用此函数。<br>
-            JavaScript 对象转换到基本类型值时，会使用toPrimitive算法，这是一个内部算法，时编程语言内部执行遵行的一套规则。<br>
-            toPrimitive算法执行时会背传递一个参数hint,表示这是一个什么类型的运算（也可以叫运算期望），<br>根据这个hint参数，toPrimitive算法来决定内部的执行逻辑。<br>
-            hint 参数的取值只能时 string/ number/ default<br>
+        <li>
+            Symbol.toPrimitive 是一个内置的Symbol值，它是作为对象的函数值属性存在的，当一个对象转换为对应的原始值时，会调用此函数。<br />
+            JavaScript 对象转换到基本类型值时，会使用toPrimitive算法，这是一个内部算法，时编程语言内部执行遵行的一套规则。<br />
+            toPrimitive算法执行时会背传递一个参数hint,表示这是一个什么类型的运算（也可以叫运算期望），<br />根据这个hint参数，toPrimitive算法来决定内部的执行逻辑。<br />
+            hint 参数的取值只能时 string/ number/ default<br />
 
-            参考：<br>
-            <a target="_blank" rel="noopener noreferrer"
-            href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive">
-                MDN说明
-            </a><br>
-            <a target="_blank" rel="noopener noreferrer" href="https://juejin.im/post/5a695ec16fb9a01ca10b195b">
-                JavaScript 对象转换到基本类型值算法 ToPrimitive
-            </a><br>
-
+            参考：<br />
+            <a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive"> MDN说明 </a><br />
+            <a target="_blank" rel="noopener noreferrer" href="https://juejin.im/post/5a695ec16fb9a01ca10b195b"> JavaScript 对象转换到基本类型值算法 ToPrimitive </a><br />
         </li>
     </ul>
 </section>
@@ -143,7 +165,7 @@ theDog.toString(); // "My name is Lily"</code>
     <p></p>
     <h3>1. 无调⽤用对象 undefined/window</h3>
     <p>在全局执行环境中（在任何函数体外部），this都指向全局变量。在浏览器中, window 对象同时也是全局对象</p>
-<pre><code class="language-js">function f1() {
+    <pre><code class="language-js">function f1() {
     return this;
 }
 // 浏览器中方
@@ -152,12 +174,12 @@ f1() === window;
 //在node中
 f1() === global;</code></pre>
     <p>在严格模式下，this将保持他进入执行环境的值，如果this没有被执行环境定义，那它将保持为undefined</p>
-<pre><code class="language-js">function f2() {
+    <pre><code class="language-js">function f2() {
     "use strict"; //这里是严格模式
     return this;
 }
 f2() === undefined;</code></pre>
-<a target="_blank" rel="noopener noreferrer" href="http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html">Javascript 严格模式详解</a>
+    <a target="_blank" rel="noopener noreferrer" href="http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html">Javascript 严格模式详解</a>
 
     <h3>2. 有调⽤用对象</h3>
     <p>在函数内部，this的值取决于函数被调用的方式。</p>
@@ -182,14 +204,14 @@ point.x;  // 0
 point.y;  // 0
 x;  // 1
 y;  // 1</code></pre>
-    <p>在ES6中允许使用“箭头”（=>）定义函数，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象<br>
-        <a target="_blank" rel="noopener noreferrer"
-        href="http://es6.ruanyifeng.com/?search=%E7%AE%AD%E5%A4%B4&x=0&y=0#docs/function#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0">
+    <p>
+        在ES6中允许使用“箭头”（=>）定义函数，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象<br />
+        <a target="_blank" rel="noopener noreferrer" href="http://es6.ruanyifeng.com/?search=%E7%AE%AD%E5%A4%B4&x=0&y=0#docs/function#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0">
             箭头函数使用说明
         </a>
     </p>
 
-<pre><code class="language-js">const point = {
+    <pre><code class="language-js">const point = {
     x: 0,
     y: 0,
     moveTo: function (x, y) {
@@ -218,7 +240,7 @@ y;  // VM8582:1 Uncaught ReferenceError: y is not defined</code></pre>
         <li>将步骤1新创建的对象作为this的上下文;</li>
         <li>如果该函数没有返回对象，则返回this;</li>
     </ul>
-<pre><code class="language-js">function Car(make, model, year) {
+    <pre><code class="language-js">function Car(make, model, year) {
  "use strict"
   this.make = make;
   this.model = model;
@@ -255,27 +277,24 @@ Car('Eagle', 'Talon TSi', 1993); // Cannot set property 'make' of undefined
 
     <h3>3、使⽤用场景</h3>
     面向对象编程，实现私有变量。闭包通常用来创建内部变量，使得这些变量不能被外部随意修改，同时又可以通过指定的函数接口来操作。
-
 </section>
 
 <section>
     <h2>四、深浅拷⻉</h2>
     <h3>1、概念</h3>
-    <p>在JavaScrpit中，对于Object和Array这类的引用类型值，
-        当从一个变量向另一个变量复制引用类型值时，这个值的副本其实时一个指针，
-        两个变量指向同一个堆对象，改变其中一个变量，另一个也会受影响。</p>
+    <p>在JavaScrpit中，对于Object和Array这类的引用类型值， 当从一个变量向另一个变量复制引用类型值时，这个值的副本其实时一个指针， 两个变量指向同一个堆对象，改变其中一个变量，另一个也会受影响。</p>
     <p>这种拷贝分为两种情况：拷贝引用和拷贝实例，也就是我们说的浅拷贝和深拷贝。</p>
     <p>浅拷贝只会将对象的各个属性进行一次复制，并不会递归复制，也就是说只会赋值目标对象的第一层属性。</p>
     <p>深拷贝不同于浅拷贝，它不只拷贝目标对象的第一层属性，而是对贵拷贝目标对象的所有属性</p>
     <a target="_blank" rel="noopener noreferrer" href="https://segmentfault.com/a/1190000015042902">
         「JavaScript」带你彻底搞清楚深拷贝、浅拷贝和循环引用
     </a>
-    <p>浅拷贝对于目标对象第一层为基本数据类型的数据，就是直接赋值，即传值；
-        而目标对象第一层为引用数据类型的数据，就是直接赋值存于栈内存储的堆内存地址，即传址，并没有开辟新的栈，
+    <p>
+        浅拷贝对于目标对象第一层为基本数据类型的数据，就是直接赋值，即传值； 而目标对象第一层为引用数据类型的数据，就是直接赋值存于栈内存储的堆内存地址，即传址，并没有开辟新的栈，
         也就是复制的结果是两个对象指向同一个地址，修改其中一个对象的属性，另一个对象的属性也会修改。
     </p>
     <p>深拷贝的规则新开辟新的栈，两个对象对应两个不同的地址，修改一个对象的属性，不会改变另外一个对象的属性。</p>
-    <h3>2、深拷⻉注意点</h3>
+    <h3>2、浅拷⻉注意点</h3>
     <ul>
         <li>直接等号赋值</li>
         <pre><code class="language-js">
@@ -285,7 +304,8 @@ Car('Eagle', 'Talon TSi', 1993); // Cannot set property 'make' of undefined
     copy[0] = 3;
     arr; // [3, 2, 3]
         </code></pre>
-        <li>Array.concat(), 能实现类似效果的还有slice()和Array.from()等
+        <li>
+            Array.concat(), 能实现类似效果的还有slice()和Array.from()等
             <pre><code class="language-js">
     const arr = [1,2,3,4,[5,6]];
     const copy = arr.concat(); \\ 利用concat()创建arr的副本
@@ -299,7 +319,8 @@ Car('Eagle', 'Talon TSi', 1993); // Cannot set property 'make' of undefined
     arr; //[1,2,3,4,[5,7]];
             </code></pre>
         </li>
-        <li>Object.assign只会一级属性复制，比直接赋值多深拷贝了一层而已，原始类型和 symbol 类型的属性都会被拷贝，会跳过那些值为 null 或 undefined 的源对象。
+        <li>
+            Object.assign只会一级属性复制，比直接赋值多深拷贝了一层而已，原始类型和 symbol 类型的属性都会被拷贝，会跳过那些值为 null 或 undefined 的源对象。
             <pre><code class="language-js">
     const obj1 = {x: 1, y: 3, z: {m: 4}};
     const obj2 = Object.assign({}, obj1);
@@ -378,15 +399,16 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
 
     <p>3.3 处理循环引用</p>
     <ul>
-        <li>父级引用
+        <li>
+            父级引用
             <p>这里的父级引用指的是，当对象的某个属性，正是这个对象本身，此时我们如果进行深拷贝，可能会在子元素-></p>
         </li>
-        <li>同级引用
+        <li>
+            同级引用
             <p>同样的需要在遍历的时候记录对象中的所有对象，判断是否需要创建新的对象即可</p>
         </li>
     </ul>
 </section>
-
 
 <section>
     <h2>五、原型/原型链</h2>
@@ -400,19 +422,15 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     <h3>2. 原型链</h3>
     <ul>
         <li>访问对象属性时，会沿着_proto_上溯，直到访问到最顶端的null(属性查到Object.prototype)</li>
-        <li>_proto_来至于Objectc.prototype,
-            与其说是一个属性，不如说是一个getter/setter, 当使用obj._proto_时，可以理解成返回Object.getPrototypeOf(obj)</li>
+        <li>_proto_来至于Objectc.prototype, 与其说是一个属性，不如说是一个getter/setter, 当使用obj._proto_时，可以理解成返回Object.getPrototypeOf(obj)</li>
     </ul>
 </section>
-
 
 <section>
     <h2>六、变量提升</h2>
     <a target="_blank" rel="noopener noreferrer" href="http://es6.ruanyifeng.com/#docs/let">软一峰- EcmaScript 6 入门</a>
     <h3>1、let/const/var的区别</h3>
-    <p>let 只在let命令所在的代码块有效， var命令会发生“变量提升”现象，即变量可以在声明之前使用，值为undedined。
-        let 改变了语法行为，它所在的变量一定要在声明之后使用，否则会报错。
-    </p>
+    <p>let 只在let命令所在的代码块有效， var命令会发生“变量提升”现象，即变量可以在声明之前使用，值为undedined。 let 改变了语法行为，它所在的变量一定要在声明之后使用，否则会报错。</p>
     <h3>2、let/const的访问死区</h3>
     <p>只要块即作用域存在let命令，它的声明变量就“绑定”这个区域，不再受外界影响</p>
     <pre><code class="language-js">
@@ -422,12 +440,11 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
         let temp;
     }
     </code></pre>
-    <p>ES6中明确规定，如果块区内存在let和const命令，这个区块对这些命令声明的变量，
-        从一开始就形成封闭的作用域，分时在声明之前使用这些变量都会报错。
+    <p>
+        ES6中明确规定，如果块区内存在let和const命令，这个区块对这些命令声明的变量， 从一开始就形成封闭的作用域，分时在声明之前使用这些变量都会报错。
         总之，在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”。
     </p>
 </section>
-
 
 <section>
     <h2>七、Promise</h2>
@@ -436,13 +453,11 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     <p>Promise, 简单来说就是一个容器，里面保存这某个未来才会结束的事件的结果，从语法上说，Promise是一个对象，从它可可以获取异步操作的消息。</p>
 
     <p>有了promise对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。</p>
-    <h3> 1、使用方法</h3>
+    <h3>1、使用方法</h3>
     <ul>
-        <li>then方法定义在原型对象上，它的作用是为Promise实例添加状态改变时的回调函数，
-            第一个参数resolved状态的回调，第二个参数是rejected状态的回调函数。</li>
+        <li>then方法定义在原型对象上，它的作用是为Promise实例添加状态改变时的回调函数， 第一个参数resolved状态的回调，第二个参数是rejected状态的回调函数。</li>
         <li>catch方法是.then(null, reject)的别名rejected状态时的回调,提倡用catch方法写。</li>
-        <li>finally方法用于指定不管Promise对象最后的状态如何，都会执行的操作，不接受任何参数，
-            没办法直到promise的结果，所以他里面的操作应该与状态无关。</li>
+        <li>finally方法用于指定不管Promise对象最后的状态如何，都会执行的操作，不接受任何参数， 没办法直到promise的结果，所以他里面的操作应该与状态无关。</li>
     </ul>
     <pre><code class="language-js">
     const pr = new Promise((resolve, reject) => {
@@ -468,18 +483,21 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     .finally(() => {···});
     </code></pre>
 
-    <h3> 2、三种状态的转换</h3>
-    <p>Promise的状态不受外界影响。该对象的代表这一个异步操作，
-        有三种状态：pending(进行中)，fullfilled(已成功)，和rejected(已失败)。
-        只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。</p>
-    <p>一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise对象的状态改变，
-        只有两种可能：从pending变为fulfilled和从pending变成rejected。
-        只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果，这就是resolved.</p>
+    <h3>2、三种状态的转换</h3>
+    <p>
+        Promise的状态不受外界影响。该对象的代表这一个异步操作， 有三种状态：pending(进行中)，fullfilled(已成功)，和rejected(已失败)。
+        只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。
+    </p>
+    <p>
+        一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise对象的状态改变， 只有两种可能：从pending变为fulfilled和从pending变成rejected。
+        只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果，这就是resolved.
+    </p>
 
     <h3>3、all/race方法的使用</h3>
     <ul>
-        <li>Promise.all方法用与将多个Promise实例包装成一个新的Promise实例，等待所有实例改变状态，根据所有实例改变状态的结果返回。
-    <pre><code class="language-js">
+        <li>
+            Promise.all方法用与将多个Promise实例包装成一个新的Promise实例，等待所有实例改变状态，根据所有实例改变状态的结果返回。
+            <pre><code class="language-js">
     const databasePromise = connectDatabase();
 
     const booksPromise = databasePromise
@@ -494,9 +512,9 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     ])
     .then(([books, user]) => pickTopRecommendations(books, user));
     </code></pre>
-        <p>上面代码中，booksPromise和userPromise是两个异步操作，只有等到它们的结果都返回了，才会触发pickTopRecommendations</p>
-        <p>注意，如果作为参数的Promise实例，自己定义了catch方法，那么它一旦被rejected, 并不会触发all的catch方法，也不会触发then方法指定回调函数</p>
-    <pre><code class="language-js">
+            <p>上面代码中，booksPromise和userPromise是两个异步操作，只有等到它们的结果都返回了，才会触发pickTopRecommendations</p>
+            <p>注意，如果作为参数的Promise实例，自己定义了catch方法，那么它一旦被rejected, 并不会触发all的catch方法，也不会触发then方法指定回调函数</p>
+            <pre><code class="language-js">
     const p1 = new Promise((resolve, reject) => {
       resolve('hello');
     })
@@ -513,14 +531,16 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     .then(result => console.log(result))
     .catch(e => console.log(e));// ["hello", Error: 报错了]
     </code></pre>
-        <p>上面代码中，p1会resolved，p2首先会rejected,但p2有自己的catch方法，
-            该方法返回的是一个Error对象，那么all会把两个promise都在resolved返回，
-            调用then方法，不会调用catch方法。如果p2没有catch方法，则会触发catch方法。</p>
+            <p>
+                上面代码中，p1会resolved，p2首先会rejected,但p2有自己的catch方法， 该方法返回的是一个Error对象，那么all会把两个promise都在resolved返回，
+                调用then方法，不会调用catch方法。如果p2没有catch方法，则会触发catch方法。
+            </p>
         </li>
-        <li>Promise.race方法同样是将多个Promise实例包装成一个新的Promise实例。只要其中一个实际改变状态，则根据改变实例的状态的结果返回。
-    <pre><code class="language-js">const p = Promise.race([p1, p2, p3]);</code></pre>
-    <p>上面代码中，只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。那个最先改变状态的promise实例的返回值，就传递给p的回调函数。</p>
-    <pre><code class="language-js">
+        <li>
+            Promise.race方法同样是将多个Promise实例包装成一个新的Promise实例。只要其中一个实际改变状态，则根据改变实例的状态的结果返回。
+            <pre><code class="language-js">const p = Promise.race([p1, p2, p3]);</code></pre>
+            <p>上面代码中，只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。那个最先改变状态的promise实例的返回值，就传递给p的回调函数。</p>
+            <pre><code class="language-js">
     const p = Promise.race([
       fetch('/resource-that-may-take-a-while'),
       new Promise(function (resolve, reject) {
@@ -530,21 +550,22 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
 
     p.then(console.log).catch(console.error);
     </code></pre>
-    <p>如上代码中，如果5秒内fetch方法无法返回结果，那么实例p的状态就会变成rejected,从而触发catch方法。</p>
+            <p>如上代码中，如果5秒内fetch方法无法返回结果，那么实例p的状态就会变成rejected,从而触发catch方法。</p>
         </li>
-        <li>Promise.resolve()将现有的对象转为Promise对象，该实例的状态为resolve
-    <pre><code class="language-js">
+        <li>
+            Promise.resolve()将现有的对象转为Promise对象，该实例的状态为resolve
+            <pre><code class="language-js">
     const p = Promise.resolve('foo')
     // 等价于
     const p =  new Promise(resolve => resolve('foo'))
     p.then(function (s) {
       console.log(s); // "foo"
     });
-    </code></pre >
-
+    </code></pre>
         </li>
-        <li>Promise.reject()将现有的对象转为Promise对象，该实例的状态为rejected
-    <pre><code class="language-js">
+        <li>
+            Promise.reject()将现有的对象转为Promise对象，该实例的状态为rejected
+            <pre><code class="language-js">
     const p = Promise.reject('出错了');
     // 等同于
     const p = new Promise((resolve, reject) => reject('出错了'))
@@ -553,19 +574,16 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
       console.log(s)
     });
     // 出错了
-    </code></pre >
+    </code></pre>
         </li>
         <li>Promise.try()就是模拟try代码块(解决同步异步一起的问题)，就像promise.catch模拟的是catch代码块。</li>
     </ul>
-
 </section>
 
 <section>
     <h2>八、Generator</h2>
     <a target="_blank" rel="noopener noreferrer" href="http://es6.ruanyifeng.com/#docs/generator">软一峰- EcmaScript 6 入门</a>
-    <p>Generator函数是一个普通的函数，但是有两个特征。
-        一是，function关键字与函数之间有一个星号；
-        二是，函数体内部使用yield表达式，定义不同的内部状态</p>
+    <p>Generator函数是一个普通的函数，但是有两个特征。 一是，function关键字与函数之间有一个星号； 二是，函数体内部使用yield表达式，定义不同的内部状态</p>
     <h3>1、使用方法</h3>
     <pre><code class="language-js">
     function* helloWorldGenerator() {
@@ -586,11 +604,10 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
 
     hw.next()
     // { value: undefined, done: true }
-    </code></pre >
+    </code></pre>
     <p>上面代码定义了Gemerator函数helloWorldGenerator，它内部有两个yield表达式，即函数有三个状态：hello, world和return语句（结束执行）。</p>
     <p>由于Generator函数返回的遍历器对象，只有调用next方法才会遍历下一个内部状态，所以其实提供一种可以暂停执行的函数，yield表达式就是暂停的标志。</p>
 </section>
-
 
 <section>
     <h2>九、Proxy</h2>
@@ -621,27 +638,25 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     //  getting count!
     //  setting count!
     //  2
-    </code></pre >
+    </code></pre>
     <h3>2、Proxy对比Object.defineProperty数据劫持</h3>
-    <a target="_blank" rel="noopener noreferrer"  href="https://juejin.im/post/5acd0c8a6fb9a028da7cdfaf">实现双向绑定Proxy比defineproperty优劣如何?</a>
+    <a target="_blank" rel="noopener noreferrer" href="https://juejin.im/post/5acd0c8a6fb9a028da7cdfaf">实现双向绑定Proxy比defineproperty优劣如何?</a>
     <ul>
-        <li>Object.defineProperty只能劫持对象的属性,因此我们需要对每个对象的每个属性进行遍历，
-            如果属性值也是对象那么需要深度遍历,显然能劫持一个完整的对象是更好的选择。</li>
-        <li>Object.defineProperty的第一个缺陷,无法监听数组变化，
-            vue的作者针对这个情况针对数组的一下方法（类似push/pop/等）写了一些hack，
-            但是还是没解决对某一元素赋值的情况vm.items[indexOfItem] = newValue</li>
+        <li>Object.defineProperty只能劫持对象的属性,因此我们需要对每个对象的每个属性进行遍历， 如果属性值也是对象那么需要深度遍历,显然能劫持一个完整的对象是更好的选择。</li>
+        <li>
+            Object.defineProperty的第一个缺陷,无法监听数组变化， vue的作者针对这个情况针对数组的一下方法（类似push/pop/等）写了一些hack， 但是还是没解决对某一元素赋值的情况vm.items[indexOfItem] =
+            newValue
+        </li>
         <li>Proxy可以直接监听对象而非属性，Proxy可以直接监听数组的变化</li>
         <li>Proxy有多达13种拦截方法，不局限与apply、ownKeys、has等等是Object.defineProperty不具备的。</li>
     </ul>
-
 </section>
-
 
 <section>
     <h2>十、面向对象</h2>
     <p>ES5 通过原型链继承，ES6通过class的extends继承</p>
     <h3>1、ES5继承</h3>
-    <a target="_blank" rel="noopener noreferrer"  href="https://xxxgitone.github.io/2017/06/12/JavaScript%E5%85%AD%E7%A7%8D%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F/">
+    <a target="_blank" rel="noopener noreferrer" href="https://xxxgitone.github.io/2017/06/12/JavaScript%E5%85%AD%E7%A7%8D%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F/">
         JavaScript六种继承方式
     </a>
     <p>1.1 原型链继承-让一个原型对象指向另一个类型的实例</p>
@@ -680,10 +695,9 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     </code></pre>
     <p>1.3 组合继承（原型链+构造函数）-组合继承是将原型链继承和构造函数结合起来，从而发挥二者之长的一种模式</p>
 
-    <p>1.4 原型式继承-借助原型可以基于已有的对象创建新对象，同时还不必因此创建自定义类型.<br>
-        这种模式要去你必须有一个对象作为另一个对象的基础.
-        ES5通过Object.create()方法规范了原型式继承，可以接受两个参数，
-        一个是用作新对象原型的对象和一个可选的为新对象定义额外属性的对象，行为相同.
+    <p>
+        1.4 原型式继承-借助原型可以基于已有的对象创建新对象，同时还不必因此创建自定义类型.<br />
+        这种模式要去你必须有一个对象作为另一个对象的基础. ES5通过Object.create()方法规范了原型式继承，可以接受两个参数， 一个是用作新对象原型的对象和一个可选的为新对象定义额外属性的对象，行为相同.
     </p>
     <pre><code class="language-js">
     var person = {
@@ -709,8 +723,7 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     var anotherPeson = createAnother(person)
     anotherPeson.sayHi()
     </code></pre>
-    <p>1.6 本质上就是使用寄生式继承来继承父类的原型，在将结果指定给子类型的原型,
-        这种模式通过借用构造函数来继承属性，通过原型链的混成形式来继承方法</p>
+    <p>1.6 本质上就是使用寄生式继承来继承父类的原型，在将结果指定给子类型的原型, 这种模式通过借用构造函数来继承属性，通过原型链的混成形式来继承方法</p>
     <pre><code class="language-js">
     function Parent(name) {
       this.name = name
@@ -734,18 +747,15 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     instance.sayName()
     </code></pre>
 
-
     <h3>2、ES6继承</h3>
-    <a target="_blank" rel="noopener noreferrer" href="http://es6.ruanyifeng.com/#docs/class-extends">
-        软一峰- EcmaScript 6 入门</a>
+    <a target="_blank" rel="noopener noreferrer" href="http://es6.ruanyifeng.com/#docs/class-extends"> 软一峰- EcmaScript 6 入门</a>
     <p>Class 可以通过extends关键字实现继承，这比 ES5 的通过修改原型链实现继承，要清晰和方便很多</p>
-
 </section>
 
 <h1>浏览器器终端</h1>
 <section>
     <h2>一、渲染</h2>
-    <a target="_blank" rel="noopener noreferrer"  href="https://segmentfault.com/a/1190000017329980">你真的了解回流和重绘吗</a>
+    <a target="_blank" rel="noopener noreferrer" href="https://segmentfault.com/a/1190000017329980">你真的了解回流和重绘吗</a>
     <h3>1、加载过程</h3>
     <ul>
         <li>解析HTML，生成DOM树，解析CSS，生成CSSOM树</li>
@@ -756,8 +766,9 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     </ul>
     <h3>2、reflow/repaint</h3>
     <ul>
-        <li>定义<br>
-            回流-渲染树中的部分元素发生尺寸，布局，隐藏而需要重新构建的过程<br>
+        <li>
+            定义<br />
+            回流-渲染树中的部分元素发生尺寸，布局，隐藏而需要重新构建的过程<br />
             重新绘制-渲染树中的部分元素的外观风格（颜色，背景色等）发生改变而需要重新绘制的过程
         </li>
         <li>回流的开销大于重新绘制</li>
@@ -770,15 +781,20 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     <h3>Service Worker</h3>
     <p>Service Worker 的缓存与浏览器其他内建的缓存机制不同，它可以让我们自由控制缓存哪些文件、如何匹配缓存、如何读取缓存，并且缓存是持续性的。</p>
     <h3>Memory Cache</h3>
-    <p>Memory Cache也就是内存中的缓存，主要包含的是当前中页面中已经抓取到的资源,例如页面上已经下载的样式、脚本、图片等
-        。一旦我们关闭 Tab 页面，内存中的缓存也就被释放了。当我们访问过页面以后，再次刷新页面，可以发现很多数据都来自于内存缓存</p>
+    <p>
+        Memory Cache也就是内存中的缓存，主要包含的是当前中页面中已经抓取到的资源,例如页面上已经下载的样式、脚本、图片等 。一旦我们关闭 Tab
+        页面，内存中的缓存也就被释放了。当我们访问过页面以后，再次刷新页面，可以发现很多数据都来自于内存缓存
+    </p>
     <h3>Disk Cacher</h3>
-    <p>Disk Cache 也就是存储在硬盘中的缓存，读取速度慢点，但是什么都能存储到磁盘中，比之 Memory Cache 胜在容量和存储时效性上。
-        它会根据 HTTP Herder 中的字段判断哪些资源需要缓存，哪些资源可以不请求直接使用，哪些资源已经过期需要重新请求。
+    <p>
+        Disk Cache 也就是存储在硬盘中的缓存，读取速度慢点，但是什么都能存储到磁盘中，比之 Memory Cache 胜在容量和存储时效性上。 它会根据 HTTP Herder
+        中的字段判断哪些资源需要缓存，哪些资源可以不请求直接使用，哪些资源已经过期需要重新请求。
     </p>
     <h3>Push Cache</h3>
-    <p>Push Cache（推送缓存）是 HTTP/2 中的内容，当以上三种缓存都没有命中时，它才会被使用。
-        它只在会话（Session）中存在，一旦会话结束就被释放，并且缓存时间也很短暂，在Chrome浏览器中只有5分钟左右，同时它也并非严格执行HTTP头中的缓存指令。</p>
+    <p>
+        Push Cache（推送缓存）是 HTTP/2 中的内容，当以上三种缓存都没有命中时，它才会被使用。
+        它只在会话（Session）中存在，一旦会话结束就被释放，并且缓存时间也很短暂，在Chrome浏览器中只有5分钟左右，同时它也并非严格执行HTTP头中的缓存指令。
+    </p>
 </section>
 
 <section>
@@ -788,41 +804,53 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     <h2>四、安全</h2>
     <h3>XSS攻击与防御</h3>
     <p>是跨站脚本攻击, 过滤页面的输入和输出罗</p>
-    <h3>iframe， 第三方提供，不受我们控制，在iframe添加sanbox属性，限制它的权限</h3>
-    <h3>点击劫持，用户点击页面上的任何点跳转到某一游戏网站～～，http头部设置禁止html内容在frame里面显示出来</h3>
-    <h3>错误内容攻击，比如要用户上传图片，然后攻击者上传了有js脚本伪装的图片，X-Content-Type-Options</h3>
-    <h3>不安全的第三方依赖包，这个记得那一年圣诞节，所有按钮彩蛋对的事情～～这个真的靠天了～～</h3>
+
+    <h3>iframe</h3>
+    <p>第三方提供，不受我们控制，在iframe添加sanbox属性，限制它的权限</p>
+
+    <h3>点击劫持</h3>
+    <p>用户点击页面上的任何点跳转到某一游戏网站～～，http头部设置禁止html内容在frame里面显示出来</p>
+
+    <h3>错误内容攻击</h3>
+    <p>比如要用户上传图片，然后攻击者上传了有js脚本伪装的图片，X-Content-Type-Options</p>
+
+    <h3>不安全的第三方依赖包</h3>
+    <p>这个记得那一年圣诞节，所有按钮彩蛋对的事情～～这个真的靠天了～～</p>
+
     <h3>CDN劫持</h3>
+
     <h3>本地存储数据泄露</h3>
 </section>
 <section>
     <h2>五、前端的优化</h2>
-    1.合理的使用文件缓存
-    2.在网络请求上优化
-      合并请求
-      首屏的小图片使用base64
-      合并静态资源
-      使用雪碧图
+    <h3>1.合理的使用文件缓存</h3>
 
-      压缩资源
-      最小化js和css
-      使用Dzip
-      使用合理的图片格式
-      减少cookie的大小
-      使用外链资源
-     4.开启keep-alive
+    <h3>2.在网络请求上优化</h3>
+    <p>
+        合并请求<br />
+        首屏的小图片使用base64<br />
+        合并静态资源<br />
+        使用雪碧图<br />
 
-     6.多域名
+        压缩资源<br />
+        最小化js和css<br />
+        使用Dzip<br />
+        使用合理的图片格式<br />
+        减少cookie的大小<br />
+        使用外链资源
+    </p>
+    <h3>4.开启keep-alive</h3>
 
-     渲染执行优化
-     1.css放在顶部，避免二次渲染cssDom结构
-     2.js放在底部，不阻塞页面的加载和解析
-     3.避免图片压缩
-     4.删除重复脚本
-     5.减少Dom对象的操作造成reflow
+    <h3>4 6.多域名</h3>
 
-
-
+    <h3>5.渲染执行优化</h3>
+    <p>
+        1.css放在顶部，避免二次渲染cssDom结构<br />
+        2.js放在底部，不阻塞页面的加载和解析<br />
+        3.避免图片压缩<br />
+        4.删除重复脚本<br />
+        5.减少Dom对象的操作造成reflow<br />
+    </p>
 </section>
 <section>
     <h2>五、其他</h2>
@@ -836,16 +864,20 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     <p>@import需要网页完全载入以后加载</p>
     <h3>2.在不固定高度垂直居中的方法</h3>
     <ul class="list">
-        <li>display:fex布局(父结构)，align-items:center实现垂直居中，justify-content:center实现水平居中。
-<pre>
+        <li>
+            display:fex布局(父结构)，align-items:center实现垂直居中，justify-content:center实现水平居中。
+            <pre>
 <code class="language-css">.box{
     display:flex;
     align-items:center;
     justify-content:center;
 }</code>
 </pre>
-        <li>display:grid布局(父结构)，子结构align-self:center实现垂直居中，justify-self:center实现水平居中。
-<pre>
+        </li>
+
+        <li>
+            display:grid布局(父结构)，子结构align-self:center实现垂直居中，justify-self:center实现水平居中。
+            <pre>
 <code class="language-css">.box{
     display:grid;
 }
@@ -855,8 +887,9 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
 }</code>
 </pre>
         </li>
-        <li>display:table-cell布局(父结构)，vertical-align实现垂直居中，text-align实现水平居中。
-<pre>
+        <li>
+            display:table-cell布局(父结构)，vertical-align实现垂直居中，text-align实现水平居中。
+            <pre>
 <code class="language-css">.box{
     display:table-cell;
     text-align:center;
@@ -864,8 +897,9 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
 }</code>
 </pre>
         </li>
-        <li>position:relative布局(子结构)，margin: 0 auto实现垂直居中，定位实现水平居中。
-<pre>
+        <li>
+            position:relative布局(子结构)，margin: 0 auto实现垂直居中，定位实现水平居中。
+            <pre>
 <code class="language-css">.box{
     position: relative;
     margin: 0 auto;
@@ -874,8 +908,9 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
 }</code>
 </pre>
         </li>
-        <li>position:absolute布局(子结构)，通过设置定位都为0来实现垂直居中
-<pre>
+        <li>
+            position:absolute布局(子结构)，通过设置定位都为0来实现垂直居中
+            <pre>
 <code class="language-css">.box{
     position: absolute;
     left:0;
@@ -885,8 +920,9 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
 }</code>
 </pre>
         </li>
-        <li>通过固定line-height后，text-align实现水平居中，vertical-align实现垂直居中
-<pre>
+        <li>
+            通过固定line-height后，text-align实现水平居中，vertical-align实现垂直居中
+            <pre>
 <code class="language-css">.box{
     line-height: 300px;
     text-align: center;
@@ -901,35 +937,43 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
     <h3>3.移动端300ms点击延迟（建议去 fastClick 官网看下，2016年底 延迟300ms 的事情就已经逐步消失了）</h3>
     <p><a href="https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away">300ms tap delay, gone away</a></p>
     <pre><code class="language-html"><xmp><meta name="viewport" content="width=device-width"></xmp></code></pre>
-    <p>其实就上面一行代码基本上不需要解决这个问题了呀～～<br><br></p>
-
+    <p>其实就上面一行代码基本上不需要解决这个问题了呀～～<br /><br /></p>
 
     <a target="_blank" rel="noopener noreferrer" href="https://juejin.im/post/5b3cc9836fb9a04f9a5cb0e0">移动端300ms点击延迟和点击穿透</a>
     <p>由于移动端会有双击缩放的这个操作，因此浏览器在click之后要等待300ms，看用户有没有下一次点击，也就是这次操作是不是双击。</p>
     <p>解决方案如下</p>
     <ul>
-        <li>禁用缩放,当HTML文档头部包含如下meta标签时：<pre><code class="language-html"><xmp><meta name="viewport" content="user-scalable=no">
+        <li>
+            禁用缩放,当HTML文档头部包含如下meta标签时：
+            <pre><code class="language-html"><xmp><meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1"></xmp></code></pre>
             <p>表明这个页面是不可缩放的，那双击缩放的功能就没有意义了，此时浏览器可以禁用默认的双击缩放行为并且去掉300ms的点击延迟。</p>
-            <p>缺点：就是必须通过完全禁用缩放来达到去掉点击延迟的目的，然而完全禁用缩放并不是我们的初衷，我们只是想禁掉默认的双击缩放行为，
-                这样就不用等待300ms来判断当前操作是否是双击。但是通常情况下，我们还是希望页面能通过双指缩放来进行缩放操作，比如放大一张图片，放大一段很小的文字。</p>
+            <p>
+                缺点：就是必须通过完全禁用缩放来达到去掉点击延迟的目的，然而完全禁用缩放并不是我们的初衷，我们只是想禁掉默认的双击缩放行为，
+                这样就不用等待300ms来判断当前操作是否是双击。但是通常情况下，我们还是希望页面能通过双指缩放来进行缩放操作，比如放大一张图片，放大一段很小的文字。
+            </p>
         </li>
-        <li>更改默认的视口宽度
-        <pre><code class="language-html"><xmp><meta name="viewport" content="width=device-width"></xmp></code></pre>
+        <li>
+            更改默认的视口宽度
+            <pre><code class="language-html"><xmp><meta name="viewport" content="width=device-width"></xmp></code></pre>
             <p>如果设置了上述meta标签，那浏览器就可以认为该网站已经对移动端做过了适配和优化，就无需双击缩放操作了。</p>
         </li>
-        <li>CSS touch-action,指定了相应元素上能够触发的用户代理（也就是浏览器）的默认行为。(只有IE支持)
-            如果将该属性值设置为touch-action: none，那么表示在该元素上的操作不会触发用户代理的任何默认行为，就无需进行300ms的延迟判断。
+        <li>
+            CSS touch-action,指定了相应元素上能够触发的用户代理（也就是浏览器）的默认行为。(只有IE支持) 如果将该属性值设置为touch-action:
+            none，那么表示在该元素上的操作不会触发用户代理的任何默认行为，就无需进行300ms的延迟判断。
         </li>
-        <li>FastClick 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库。FastClick的实现原理是在检测到touchend事件的时候，
-            会通过DOM自定义事件立即出发模拟一个click事件，并把浏览器在300ms之后的click事件阻止掉。</li>
+        <li>
+            FastClick 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库。FastClick的实现原理是在检测到touchend事件的时候，
+            会通过DOM自定义事件立即出发模拟一个click事件，并把浏览器在300ms之后的click事件阻止掉。
+        </li>
     </ul>
     <h3>4.移动端点击穿透</h3>
-    <p>假如我页面上有两个元素A和B。B元素在A元素之上，我们在B元素的touchstart事件上注册了一回调函数，
-        该函数的作用是隐藏B元素。（dialog 的蒙版 mask）。我们发现。当点击B元素，B元素被隐藏了，随后A元素触发了click事件</p>
-    <p>在移动端 touchstart->touchmove->touchend->click ,
-        当touchstart事件把B元素隐藏后，隔了300ms,浏览器触发了click事件，
-        但是B元素不见了，所以该事件被派发到A元素身上。
+    <p>
+        假如我页面上有两个元素A和B。B元素在A元素之上，我们在B元素的touchstart事件上注册了一回调函数， 该函数的作用是隐藏B元素。（dialog 的蒙版
+        mask）。我们发现。当点击B元素，B元素被隐藏了，随后A元素触发了click事件
+    </p>
+    <p>
+        在移动端 touchstart->touchmove->touchend->click , 当touchstart事件把B元素隐藏后，隔了300ms,浏览器触发了click事件， 但是B元素不见了，所以该事件被派发到A元素身上。
         也就是说首先触发了touch事件，然后页面已经改变，再触发了300ms的click事件～～点击穿透
     </p>
     <p>解决方案</p>
@@ -950,6 +994,31 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
         <li>4xx 客户端错误状态码 400 Bad Request /401 Unauthorized/ 403 Forbidden/ 404 Not Found</li>
         <li>5xx 服务器端状态码 500 internal Service Error/ 503 Service Unavailable</li>
     </ul>
+
+
+    <h3>call和apply区别</h3>
+    <p>从定义中可以看出，call和apply都是调用一个对象的一个方法，用另一个对象替换当前对象。
+        而不同之处在于传递的参数，apply最多只能有两个参数——新this对象和一个数组argArray，
+        call则可以传递多个参数，第一个参数和apply一样，是用来替换的对象，后边是参数列表。</p>
+
+    <h3>如何实现跨域</h3>
+    <ul>
+        <li>
+            后端实现CORS跨域
+        </li>
+        <li>
+            nginx反向代理（搭建一个中转nginx服务器，用于转发）
+        </li>
+        <li>
+            JSONP（只支持GET请求）
+        </li>
+    </ul>
+
+    <h3>小程序的包超过2M</h3>
+    <ul>
+        <li>分包</li>
+        <li>图片用网络图片</li>
+    </ul>
 </section>
 
 <h1>前端框架</h1>
@@ -957,5 +1026,296 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
 <section>
     <h2>React</h2>
     <h2>Vue</h2>
+    <a href="https://juejin.im/post/5d59f2a451882549be53b170" target="_blank" rel="noopener noreferrer">30 道 Vue 面试题</a>
+    <h3>1 、SPA 单页面的理解，它的优缺点</h3>
+    <p>
+        SPA(single-page appliction)仅再web页面初始化时加载相应的HTML、JavaScript和Css.一旦页面加载完成，
+        SPA不会因为用户的操作而进行页面的重新加载或跳转；取而代之的是利用路由机制实现HTML内容的变换，UI与用户的交互，避免也年的重新加载
+    </p>
+    <p>优点</p>
+    <ul>
+        <li>
+            用户体验好、块，内容的改变不需要重新加载整个页面，避免不必要的跳转和重复渲染
+        </li>
+        <li>
+            基于上面的一点，SPA相对服务器的压力小
+        </li>
+        <li>
+            前后端指责分离，架构清晰，前端进行交互逻辑，后段负责数据处理
+        </li>
+    </ul>
+    <p>缺点</p>
+    <ul>
+        <li>
+            初次加载耗时多：为实现单页Web应用功能及显示效果，需要再加载页面的时候将javascript\css统一加载，部分页面按需加载
+        </li>
+        <li>
+            前进后退路由管理：由于单页应用再一个页面中显示所有的内容，所以不能使用浏览器的前进后退功能，所有的页面切换需要自己建立堆栈管理
+        </li>
+        <li>
+            SEO难度较大：由于所有的内容都再一个页面中动态替换显示，所以再SEO上其有着天然的弱势
+        </li>
+    </ul>
+    <h3>2、怎样理解vue的单向数据流</h3>
+    <p>
+        所有的prop都使得其父子prop之间形成了一个单向下行绑定： 父级prop的更新会向下流动到子组件中，但反过来则不可以 。
+        每次父级组件发生更新时，子组件中所有的prop都将会刷新为最新的值，这意味着你不应该再一个子组件内部改变prop。 子组件想修改时，只能通过$emit派发一个自定义事件，父组件收到后，由父组件修改
+    </p>
+
+    <h3>3、直接给一个数组项赋值，vue能检测到变化吗</h3>
+    <ul>
+        <li>
+            当你利用索引直接设置一个数组项时，例如： vm.items[indexOfItem] = newValue;
+            <code class="language-js">
+                Vue.set(vm.items, indexOfItem, newValue);
+                Vue.$set(vm.items, indexOfItem, newValue);
+
+                vm.items.splice(indexOfItem, 1, newValue);
+            </code>
+        </li>
+        <li>
+            当你修改数组的长度时，例如 vm.items.length = newLength;
+            <code  class="language-js">
+                vm.items.splice(newLength);
+            </code>
+        </li>
+    </ul>
+
+    <h3>4、vue的生命周期</h3>
+    <img src="https://user-gold-cdn.xitu.io/2019/8/19/16ca74f183827f46?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="">
+
+    <h3>5、谈谈你对keep-alive的了解</h3>
+    <p>kepp-alive 是vue内置的一个组件，可以使被包含的组件保留状态，避免重新渲染，其有以下特性</p>
+    <ul>
+        <li>
+            一般结合路由和动态组件一起使用，用于缓存组件
+        </li>
+        <li>
+            提供include和exclude属性，两者都支持字符串或正则表达式，include表示只有名称匹配的组件会被缓存，
+            exclude表示任何名称匹配的组件不回被缓存，其中exclude的优先级别比include高
+        </li>
+        <li>
+            对应的两个钩子函数activated 和deactivated,当组件激活时，触发钩子函数activated，当组件被移除时，触发钩子函数deactivated
+        </li>
+    </ul>
+
+    <h3>5、Vue组件间通信</h3>
+    <ul>
+        <li>
+            pros/$emit 父子组件通信
+        </li>
+        <li>ref / $parent/$children  
+            <p>ref如果在普通的DOM元素上使用，引用指向的就是DOM元素，如果用在子组件上，引用就指向组件实例</p>
+            <p>$parent 和$children :访问父/子实例</p>
+        </li>
+        <li>EventBus($emit/$on)适用于父子、隔代、兄弟组件通信
+            <p>这种方法通过一个空的vue实例作为中央事件总线，用它来触发事件和监听事件，从而实现人格组件间的通信，包括父子、隔代、兄弟组件</p>
+        </li>
+        <li>
+            $attrs/$listeners 适用于父子、隔代、兄弟组件通信
+        </li>
+        <li>provide/inject适用于隔代组件通信</li>
+        <li>VueX适用于父子、隔代、兄弟组件通信，Vuex是一个专为Vue.js应用程序开发的状态管理模式。每一个Vuex应用的核心就是store（仓库）。
+            store 基本上就是一个容器，它包含着你的应用中的大部分状态。
+           
+        </li>
+    </ul>
+    <h3>6、关于vuex</h3>
+    <p>
+        Vuex的状态存储使响应式的。当vue组件从store中读取状态的时候，若store中的状态发生变化，那么相应的组件也会相应得到高效更新。
+    </p>
+    <p>改变store中的状态的唯一途径就是显式地提交(commit)mutation.这样使得我们可以方便地跟踪每一个状态的变化</p>
+    <ul>
+        <li>State:定义了应用状态的数据结构，可以在这里设置默认的初始状态</li>
+        <li>Gatter: 允许组件从store中获取数据， mapGatters 辅助函数仅仅使将store中的getter映射到局部计算属性</li>
+        <li>Mutations: 是唯一更改store中状态的放大，切必须是同步函数</li>
+        <li>Action: 用于提交mutation, 而不是直接变更状态，可以包含任意异步操作</li>
+        <li>Module: 允许将单一的Store拆分为多个Store且同事保存在大衣的状态树中</li>
+    </ul>
+
+    <h3>7、Vue SSR</h3>
+    <p>SSR大致的意思就是vue在客户端将标签渲染的整个html片段的工作在服务器端完成，服务器端形成html片段直接返回给客户端的过程叫做服务器渲染</p>
+    <ul>
+        <li>
+            服务器端渲染的优点
+            <p>更好的SEO</p>
+            <p>更快的内容到达事件（首屏加载更快）</p>
+        </li>
+        <li>
+            服务器端渲染的缺点
+            <p>更多的开发条件显示，只支持beforeCreate 和 created两个钩子函数，这会导致外部扩展的库需要特殊处理，才能在副为i前短渲染应用程序中运行。
+                并且与可以部署在任何静态文件服务器上的完全静态单页应用程序SPA不同，服务器渲染应用程序需要Node.js server运行环境
+            </p>
+            <p>更多的服务器负载；在node.js中渲染完成的应用程序，显然会比仅仅提供静态文件的server更加打量暂用GPU资源，
+                因此如果你预料在高流量环境下适用，请准备相应的服务器负载，并明智的采取缓存策略</p>
+        </li>
+    </ul>
+
+    <h3>8、vue-router路由模式有几种</h3>
+    <ul>
+        <li>
+            hash:适用URL 的hash值来作路由。支持所有浏览器，包括不支持html History Api的浏览器
+        </li>
+        <li>
+            History: 依赖HTML5 HistoryAPI和服务器配置。具体可以查看HTML5 History模式
+        </li>
+        <li>
+            abstract: 支持所有javascript 运行环境，如Node.js服务器端。如果发现没有浏览器api，路由会自动强制进入这个模式
+        </li>
+    </ul>
+
+    <h3>9、hash和history路由模式实现的原理</h3>
+    <p>hash</p>
+    <ul>
+        <li>
+            UPL中的hash值只是客户端的一种状态，也就是说当向服务器端发出请求时，hash部分不回被发送；
+        </li>
+        <li>
+            hash值的改变，都会在浏览器的访问理智中增加一个记录。因此我们能通过浏览器的会退、前进按钮控制hash的切换
+        </li>
+        <li>
+            可以通过a标签，并设置href属性，当用户点击这个标签后，URL的hash值会发生改变；或者适用javascript来对loaction.hash进行赋值，
+            改变URL的hash值
+        </li>
+        <li>
+            我们可以适用hashchange事件来监听hash值的变化，从而对页面进行跳转
+        </li>
+    </ul>
+
+    <p>history</p>
+    <p>HTML5提供了History API来实现URL的变化，其中做主要的API有以下两个history.pushState 和history.replaceState. 
+        这两个两个
+        API可以在不进行刷新的情况下，操作浏览器的历史记录。唯一不同的是，前者一个新增一个历史记录，后者直接接替当前的历史记录
+    </p>
+    <ul>
+        <li>pushState 和relaceState两个API来操作实现URL的变化</li>
+        <li>我们可以适用popstate事件来监听URL的变化，从而对页面进行跳转</li>
+        <li>history.pushState 或 history.replaceState 不回触发popstate</li>
+    </ul>
+
+
+
+
+    <h3>10、vue如何实现数据的双向绑定</h3>
+    <ul>
+        <li>
+            实现一个Observer, 对数据对象进行遍历，包括子属性对象的属性，利用Object.defineProperty对属性都加上setter和getter。
+            这样的话，当给这个对象赋值就会触发setter，那么就监听到了数据的变化
+        </li>
+        <li>
+            实现一个解析器Compile: 解析vue模板指令，将模版中的变量都替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，
+            添加监听数据的订阅者，一旦数据有变动，收到同志，调用更新函数进行数据更新
+        </li>
+        <li>
+            实现一个订阅者Watcher:Watcher订阅者是Observer和compile之间通信的桥梁，只要任务是订阅observer中的属性值变化的消息，
+            当收到属性值变化的消息使，触发解析器Compile中对应的更新函数
+        </li>
+        <li>
+            实现一个订阅器Dep:订阅器采用-发布-订阅 设计模式，用来手机订阅Watcher,对监听起Observer和订阅者Watcher进行统一管理
+        </li>
+    </ul>https://wxxd.xfwings.com.cn/h5/h5_/study
+
+
+    <h3>11、Proxy与Object.defineProperty</h3>
+    <ul>
+        <li>
+            Proxy 可以直接监听到对象而非属性
+        </li>
+        <li>
+            proxy可以直接接听到数组的变化
+        </li>
+        <li>
+            proxy有多达13种拦截方法，不限于apply、ownKeys、deleteProperty、has等等Object.defineProperty不具备的
+        </li>
+        <li>
+            Proxy 返回的是一个新的对象，我们可以只操作新的对象达到目的，而Object.defineProperty 只能遍历对象属性直接修改
+        </li>
+        <li>
+            Proxy作为新标准将受到浏览器厂商重点持续的性能优化，也就是传说中的新标准性能红利
+        </li>
+        <li>Object.defineProperty 的兼容性好，支持IE9，而Proxy的存在浏览器兼容问题，而且无法用polyfill磨平</li>
+    </ul>
+
+    <h3>12、虚拟DOM的优缺点</h3>
+    <ul>
+        <li>
+            保证性能下限： 框架的虚拟DOM需要适配任何上层api可能产生的操作，它的一些DOM操作的实现必须是普适的,所以它的性能并不是最优的；
+            但是比起粗糙的DOM操作性能要好很多，因此框架的虚拟DOM至少可以保证在你不需要手动优化的情况下，依然可以提供还不错的性能，并保证性能的下限
+        </li>
+        <li>
+            无需手动操作DOM：我们不需要手动去操作DOM，只需要写好View-Model的代码逻辑，框架会根据虚拟DOM和数据双向绑定，
+            帮我们以可预期的方式更新视图，极大的提高我们的开发效率
+        </li>
+        <li>
+            跨平台：虚拟DOM本质上JavaScrpt对象，而DOM与平台强关联，相比之下虚拟DOM可以进行更方便的跨平台操作，例如服务器渲染，weex开发
+        </li>
+        <li>
+            无法进行极致优化：虽然虚拟DOM+合理的优化，足以应对绝大部分应用的性能需求，但是在一些性能要起义极高的应用中虚拟DOM无法进行针对性的极致优化
+        </li>
+    </ul>
+
+    <h3>13、虚拟DOM实现原理</h3>
+    <ul>
+        <li>
+            用JavaScript 对象模拟真实DOM树，对真实DOM进行抽象
+        </li>
+        <li>
+            diff算法-比较两棵树的差异（）
+            <p>首先进行文本节点的判断</p>
+            <p>进入子节点的diff</p>
+            <p></p>
+        </li>
+        <li>pach算法-将两个虚拟DOM对象的差异应用到真正的DOM树</li>
+    </ul>
+
+    <h3>14、vue 优化</h3>
+    <p>代码层面的优化</p>
+    <ul>
+        <li>
+            v-if 和v-show 区分使用场景，<br/>
+            v-if 是真正的渲染条件，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建。
+            也是惰性的；如果在初始渲染时条件为假，则什么页不做，直到条件第一次变成真时才会开始渲染条件块，<br/>
+            v-show就简单得多，不管初始条件是什么，元素总是会被渲染，并且只是简单的基于CSS的display属性进行切换，
+            v-if适用与在运行时很少改变调教，不需要频繁切换条件的场景；v-show则适用于需要非常频繁切换条件的场景<br/>
+        </li>
+        <li>computed 和watch区分使用场景，<br/>
+            computed：是计算属性，当我们需要进行数值计算，并且依赖于其他数据时，应该使用，因为可以利用computed的缓存特性，避免每次获取值都需要重新计算<br/>
+            watch: 当我们需要在数据变化时执行异步或者开销较大的操作，使用watch选项允许我们执行异步操作，限制我们执行该操作的频率，并在我们得到最终结果钱，设置中间状态。
+        </li>
+        <li>v-for遍历必须为item添加key，且避免同事使用v-if<br/></li>
+        <li>长列表性能优化。<br/>
+            通过Object.freeze方法来冻结一个对象，一旦被冻结的对象再页不能被修改了</li>
+        <li>事件的销毁。<br/>
+            vue组件销毁时，会自动清理它与其他实例的连接，解绑它的全部指令及事件监听，
+            但是仅限于事件本身的事件，如果你直接调用addEventListence等方式是不会自动销毁的，我们需要在beforeDestrory 里面移除这些事件的监听，以免造成内存泄漏</li>
+
+        <li>图片资源懒加载</li>
+        <li>路由懒加载</li>
+        <li>第三方插件的按需引入</li>
+        <li>优化无限列表的性能</li>
+        <li>SSR</li>
+    </ul>
+
+    <p>webpack层面的优化</p>
+    <ul>
+        <li>webpack对图片进行压缩</li>
+        <li>减少ES6转为ES5的冗余代码</li>
+        <li>提取公共代码</li>
+        <li>模版预编译</li>
+        <li>提取组件的CSS</li>
+        <li>优化SourceMap</li>
+        <li>构建结果输出分析</li>
+        <li>Vue项目的编译优化</li>
+    </ul>
+
+    <p>基础的web技术的优化</p>
+    <ul>
+        <li>开启gzip压缩</li>
+        <li>浏览器缓存</li>
+        <li>CDN的使用</li>
+        <li>使用Chrome Performance查找性能瓶颈</li>
+    </ul>
+
+    
 
 </section>

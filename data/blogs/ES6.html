@@ -1,0 +1,42 @@
+<section style="margin-right: 250px;">
+
+    <h3>1、React / Vue.js 之类的框架为什么需要给组件添加 key 属性，其作用是什么？</h3>
+    <p>虚拟DOM的Diff算法</p>
+    <p>Vue和react的虚拟DOM的Diff算法大致相同，其核心是基于两个简单的假设</p>
+    <p>1、两个相同的组件产生类似的DOM结构，不同的组件产生不同的DOM结构。</p>
+    <p>2、同一层级的一组节点，他们可以通过唯一的id进行区分。</p>
+    <h3>2、如何判断当前代码是运行在浏览器还是 Node.js 环境中？</h3>
+    <h3>3、Sourcemap 是什么？有什么作用？生产环境中应该怎么用？</h3>
+    <h3>4、说一下 Webpack 的热更新原理吧？</h3>
+    <h3>5、简要描述一下什么是消息队列，宏任务和微任务分别又是怎么回事？</h3>
+    
+    
+
+
+
+
+
+</section>
+<section>
+    <h2>CSS</h2>
+    <h3>1、盒模型</h3>
+    <p>页面渲染时，dom元素所采取的布局模型。可通过box-sizing 进行不止</p>
+    <ul>
+        <li>content-box
+            <p>标准盒子模型，width 与height 只包括内容的宽和高，不包括边框（border）、内边距（padding）、外边距（margin）</p>
+        </li>
+        <li>
+            border-box
+            <p>width和heigth属性包括内容，内边距和边框，不包含外边距
+                width = border + padding + 内容的宽度
+                height = border + padding + 内容的高度
+            </p>
+        </li>
+        <li>
+            padding-box
+        </li>
+        <li>
+            margin-box
+        </li>
+    </ul>
+</section>
